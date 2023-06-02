@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     float x, z; 
     Vector3 pos;
-   
-
+    List<Weapon> Weapons = new List<Weapon>();
+    
 
     //아이템을 밖에서 사용하기위해 퍼블릭함 get;set으로 바꿔도됨.
     public int Hp; // 체력
@@ -64,5 +64,9 @@ public class Player : MonoBehaviour
                 transform.rotation.z), new Vector3(0, 0, 0), 1));
         }
 
+    }
+    void plusWeapon(Weapon weapon)
+    {
+        Weapons.Add(weapon);
     }
 }

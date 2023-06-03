@@ -4,8 +4,10 @@ using UnityEngine;
 using Singleton;
 public class CharacterManager : SingletonMono<CharacterManager>
 {
-    [SerializeField]int Weaponcount = 0; // 무기 개수 한계
-    [SerializeField]Character character_type;
+    
+
+    public int Weaponcount = 0; // 무기 개수 한계
+    public Character character_type;
     [SerializeField] CameraMove maincam;
     [SerializeField]Player[] players;
 

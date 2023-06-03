@@ -9,8 +9,8 @@ public class Weapon : MonoBehaviour
     public float Delay; // 무기의 딜레이
     public float critPower; // 치명타 증가 데미지
     public float critpersent; // 치명타 확률
-    public Transform player; // 플레이어 위치
-    protected Rigidbody rigid;
+    public Player player; // 플레이어 위치
+    [SerializeField]protected Rigidbody rigid;
     public virtual void Attack()
     {
     }

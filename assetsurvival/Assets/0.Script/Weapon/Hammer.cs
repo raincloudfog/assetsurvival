@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class Hammer : Weapon
 {
+
     bool isMove = true;
     bool isComeback = false;
-    Vector3 pos; // 움직임
-    // Start is called before the first frame update
+    Vector3 pos; // 플레이어의 위치
+        
     private void OnEnable()
     {
-        Damage = 10;
-        WeaponSpeed = 3f;
+        Damage = 10 * player.damagePlus;
+        WeaponSpeed = 5f;
         Delay = 1f;
         critPower = 1.5f;
         critpersent = 0.5f;
     }
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
-        Damage = 10;
-        WeaponSpeed = 3f;
+        player = FindObjectOfType<Player>();
+        Damage = 10 * player.damagePlus;
+        WeaponSpeed = 5f;
         Delay = 1f;
         critPower = 1.5f;
         critpersent = 0.5f;
+    }
+    private void Start()
+    {
+        
+        Debug.Log(Damage);
     }
 
     public override void Attack()
@@ -34,21 +40,15 @@ public class Hammer : Weapon
             isMove = true;
             
         }
-        if (isMove == true)
+        if (isMove == true && player.closestEnemy != null)
         {
-            rigid.velocity = Vector3.forward * WeaponSpeed; // 나중에는 콜라이더로 적 감지해서 그쪽으로 발사하기
-            
-            
-            //isComeback = true;
+            Vector3 rush = player.closestEnemy.position - transform.position;
+            rigid.velocity = rush * WeaponSpeed; // 나중에는 콜라이더로 적 감지해서 그쪽으로 발사하기            
             StartCoroutine(Return());
         }
         else if(isComeback == true)
         {
-            pos = player.position;
-            pos.y = 1f;
-            rigid.velocity = (pos - transform.position );
-            //transform.Translate(Vector3.back * WeaponSpeed, Space.World);
-            
+            rigid.velocity = (pos - transform.position );           
         }
         
 
@@ -57,6 +57,8 @@ public class Hammer : Weapon
     {
 
         yield return new WaitForSeconds(2);
+        pos = player.transform.position;
+        pos.y = 0.5f;
         isComeback = true;
         isMove = false;
         yield break;

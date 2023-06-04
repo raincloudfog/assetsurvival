@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Singleton;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponManager : SingletonMono<WeaponManager>
 {
     public Player player;
     public Weapon[] Weapons;
-    List<Weapon> weaPons = new List<Weapon>(); 
+    public List<Weapon> weaPons = new List<Weapon>(); 
     // Start is called before the first frame update
     void Start()
     {
@@ -38,16 +39,7 @@ public class WeaponManager : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (CharacterManager.Instance.Weaponcount == weaPons.Count)
-            {
-                Debug.Log("무기횟수가 한계치에 도달 했습니다."); // 무기 한계치에 도달했으니 더이상 생성 불가능.
-                return;
-            }
-            Weapon obj = Instantiate(Weapons[0]); // 오브젝트 풀링 수정 할것
-            obj.transform.position = player.transform.position + new Vector3(0, 0, 2);
-            obj.transform.SetParent(null);
-            weaPons.Add(obj);
-            
+            GameManager.Instance.Exp += 100;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {

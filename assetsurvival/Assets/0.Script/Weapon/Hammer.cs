@@ -31,7 +31,9 @@ public class Hammer : Weapon
         
         Debug.Log(Damage);
     }
-
+    /// <summary>
+    /// 해머의 공격 방식입니다.
+    /// </summary>
     public override void Attack()
     {
         if (Vector3.SqrMagnitude(transform.position - pos) < 2)
@@ -49,10 +51,9 @@ public class Hammer : Weapon
         else if(isComeback == true)
         {
             rigid.velocity = (pos - transform.position );           
-        }
-        
-
+        }        
     }
+
     IEnumerator Return()
     {
 

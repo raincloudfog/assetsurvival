@@ -16,7 +16,7 @@ public class Sword : Weapon
         WeaponSpeed = 3f;
         Delay = 1f;
         critPower = 1.5f;
-        critpersent = 0.5f;
+        critpersent = 0.3f;
     }
     private void Awake()
     {

@@ -10,7 +10,16 @@ public class Weapon : MonoBehaviour
     public float critPower; // 치명타 증가 데미지
     public float critpersent; // 치명타 확률
     public Player player; // 플레이어 위치
-    [SerializeField]protected Rigidbody rigid;
+    [SerializeField] protected Rigidbody rigid;
+    public Character character_type; // 캐릭터가 무엇인지 확인하기위함.
+
+    public virtual void Init()
+    {
+        character_type = StartSave.Instance.character_type;
+        
+    }
+
+    
     public virtual void Attack()
     {
     }

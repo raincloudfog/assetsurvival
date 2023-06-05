@@ -11,24 +11,37 @@ public class Hammer : Weapon
         
     private void OnEnable()
     {
-        Damage = 10 * player.damagePlus;
-        WeaponSpeed = 5f;
-        Delay = 1f;
-        critPower = 1.5f;
-        critpersent = 0.5f;
+        Init();
     }
-    private void Awake()
+    
+    public override void Init()
     {
-        player = FindObjectOfType<Player>();
+        base.Init();
+        switch (CharacterManager.Instance.character_type)
+        {
+            case Character.UnityChan:
+                player = FindObjectOfType<UnityChan>();
+                break;
+            case Character.Misaki:
+                player = FindObjectOfType<Misaki>();
+                break;
+            case Character.Yuko:
+                player = FindObjectOfType<Yuko>();
+                break;
+            default:
+                break;
+        }
+        
         Damage = 10 * player.damagePlus;
         WeaponSpeed = 5f;
         Delay = 1f;
         critPower = 1.5f;
         critpersent = 0.5f;
     }
+
     private void Start()
     {
-        
+        Init();
         Debug.Log(Damage);
     }
     /// <summary>
@@ -36,11 +49,13 @@ public class Hammer : Weapon
     /// </summary>
     public override void Attack()
     {
-        if (Vector3.SqrMagnitude(transform.position - pos) < 2)
+        if (Vector3.SqrMagnitude(transform.position - pos) <= 2)
         {
+            
             isComeback = false;
             isMove = true;
-            
+            rigid.velocity = Vector3.zero;
+
         }
         if (isMove == true && player.closestEnemy != null)
         {
@@ -50,7 +65,8 @@ public class Hammer : Weapon
         }
         else if(isComeback == true)
         {
-            rigid.velocity = (pos - transform.position );           
+            rigid.velocity = (pos - transform.position );         
+            
         }        
     }
 

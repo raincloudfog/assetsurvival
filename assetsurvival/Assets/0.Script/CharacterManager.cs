@@ -24,15 +24,15 @@ public class CharacterManager : SingletonMono<CharacterManager>
         {
             case Character.UnityChan:
                 players[0].gameObject.SetActive(true);
-                maincam.player = players[0].gameObject.transform;
+                maincam.target = players[0].gameObject.transform;
                 break;
             case Character.Misaki:
                 players[1].gameObject.SetActive(true);
-                maincam.player = players[1].gameObject.transform;
+                maincam.target = players[1].gameObject.transform;
                 break;
             case Character.Yuko:
                 players[2].gameObject.SetActive(true);
-                maincam.player = players[2].gameObject.transform;
+                maincam.target = players[2].gameObject.transform;
                 break;
             default:
                 break;

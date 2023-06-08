@@ -5,21 +5,27 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
 
-    public Transform player;
-    Vector3 StartPos; // 현재위치
-    Vector3 EndPos; // 플레이어 위치
+    public Transform target;  // 플레이어의 Transform 컴포넌트를 참조할 변수
+    public float smoothTime = 0.3f;
+    public Vector3 offset;
+    private Vector3 velocity = Vector3.zero;
+
+    
+
+    void Start()
+    {
+        
+    }
 
     private void FixedUpdate()
     {
-        Move();
-    }
-    void Move()
-    {
-        StartPos = transform.position;
-        EndPos.x = player.position.x;
-        EndPos.z = player.position.z;
-        EndPos.y = transform.position.y;
-
-        transform.position = Vector3.Lerp(StartPos, EndPos, 1f);
+        if(target != null)
+        {
+            Vector3 targetPosition = target.position + offset;
+            transform.position = Vector3.SmoothDamp(
+                transform.position,
+                targetPosition, ref velocity, smoothTime);
+        }
     }
 }
+

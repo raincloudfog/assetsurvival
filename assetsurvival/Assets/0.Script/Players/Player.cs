@@ -59,36 +59,12 @@ public class Player : MonoBehaviour
         pos.z = z;
 
         pos.Normalize();
+        transform.rotation = Quaternion.Slerp(
+                transform.rotation, Quaternion.LookRotation(pos), 0.15f
+                );
         transform.Translate(pos * Time.deltaTime * speed, Space.World);
 
-        if(x < 0)
-        {
-            transform.rotation = Quaternion.Euler(Vector3.Lerp(
-                new Vector3(transform.rotation.x,
-                transform.rotation.y,
-                transform.rotation.z), new Vector3(0, -90, 0), 1));
-        }
-        else if (x >0)
-        {
-            transform.rotation = Quaternion.Euler(Vector3.Lerp(
-                new Vector3(transform.rotation.x,
-                transform.rotation.y,
-                transform.rotation.z), new Vector3(0, 90, 0), 1));
-        }
-        else if (z < 0)
-        {
-            transform.rotation = Quaternion.Euler(Vector3.Lerp(
-                new Vector3(transform.rotation.x,
-                transform.rotation.y,
-                transform.rotation.z), new Vector3(0, 180, 0), 1 ));
-        }
-        else if (z > 0)
-        {
-            transform.rotation = Quaternion.Euler(Vector3.Lerp(
-                new Vector3(transform.rotation.x,
-                transform.rotation.y,
-                transform.rotation.z), new Vector3(0, 0, 0), 1));
-        }
+        
 
     }
     

@@ -39,6 +39,11 @@ public class WeaponManager : SingletonMono<WeaponManager>
         }
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
+            if (CharacterManager.Instance.Weaponcount == weaPons.Count)
+            {
+                Debug.Log("무기횟수가 한계치에 도달 했습니다."); // 무기 한계치에 도달했으니 더이상 생성 불가능.
+                return;
+            }
             GameManager.Instance.Exp += 100;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))

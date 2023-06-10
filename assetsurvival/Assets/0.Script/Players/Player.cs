@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     {
         Move();        
         FindClosestEnemy();
+        AA();
     }
 
     
@@ -71,5 +72,13 @@ public class Player : MonoBehaviour
     void plusWeapon(Weapon weapon)
     {
         Weapons.Add(weapon);
+    }
+
+    void AA() // 테스트용
+    {
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            Rank.Instance.HighScore += 10;
+        }
     }
 }

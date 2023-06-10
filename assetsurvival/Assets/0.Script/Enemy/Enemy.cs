@@ -4,16 +4,23 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
+
 public class Enemy : MonoBehaviour
 {
+    
+   
+    protected Attributes.Monster data;
+    
+
 
     public float Hp; // 적체력
+    public float maxHP;
     public float moveSpeed; // 이동속도
-    public float Demage; // 적 공격력
-    Player player;
-    [SerializeField] NavMeshAgent Agent;
+    public float Damage; // 적 공격력
+    public Player player;
+    [SerializeField] protected NavMeshAgent Agent;
     // Start is called before the first frame update
-    void Start()
+    public virtual void SetData(Attributes.Monster data, Player player)
     {
         
     }

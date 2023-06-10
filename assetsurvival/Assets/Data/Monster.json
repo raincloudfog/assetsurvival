@@ -1,0 +1,10 @@
+{
+  "monster": [
+    {
+      "name": "zombie",
+      "movespeed": 2,
+      "Hp": 100,
+      "power": 2
+    }
+  ]
+}

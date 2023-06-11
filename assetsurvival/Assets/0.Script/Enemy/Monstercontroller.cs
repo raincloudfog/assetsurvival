@@ -23,8 +23,12 @@ public class Monstercontroller : MonoBehaviour
            
 
             spawnTimer = 0;
-            GameObject responpoint = Instantiate(respon, Return_RandomPosition(), Quaternion.identity);
-            responpoint.transform.position += new Vector3(0,3,0);
+            for (int i = 0; i < 5; i++)
+            {
+                GameObject responpoint = Instantiate(respon, Return_RandomPosition(), Quaternion.identity);
+                responpoint.transform.position += new Vector3(0, 3, 0);
+            }
+            
             /*int rand = Random.Range(0, enemys.Length);
             Enemy enemy = Instantiate(enemys[rand], Return_RandomPosition(), Quaternion.identity);
             enemy.SetData(MonsterData.Instance.mData.monster[rand], WeaponManager.Instance.player);*/

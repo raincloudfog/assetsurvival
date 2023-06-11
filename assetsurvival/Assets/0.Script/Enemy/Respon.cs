@@ -5,7 +5,7 @@ using Singleton;
 
 public class Respon : MonoBehaviour
 {
-    [SerializeField] Enemy[] enemies;
+    [SerializeField] Enemy[] enemies; // 에너미 소환
 
     float spawnTimer;
 
@@ -19,11 +19,15 @@ public class Respon : MonoBehaviour
         if(spawnTimer >= 1)
         {
             spawnTimer = 0;
-
+            
+                
             Enemy enemy = Instantiate(enemies[rand], transform);
-            enemy.SetData(MonsterData.Instance.mData.monster[rand], WeaponManager.Instance.player);
             enemy.transform.SetParent(null);
+            enemy.SetData(MonsterData.Instance.mData.monster[rand], WeaponManager.Instance.player); // 제이슨에 있는 데이터를 받아오고 플레이어도 설정해줌
+                
             Destroy(gameObject);
+            
+            
         }
         
 

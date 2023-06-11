@@ -12,9 +12,27 @@ public class Weapon : MonoBehaviour
     public Player player; // 플레이어 위치
     [SerializeField] protected Rigidbody rigid;
     public Character character_type; // 캐릭터가 무엇인지 확인하기위함.
+    public Transform firePoint; // 발사 지점
 
     public virtual void Init()
     {
+        switch (CharacterManager.Instance.character_type)
+        {
+            case Character.UnityChan:
+                player = FindObjectOfType<UnityChan>();
+                firePoint = player.GetComponentInChildren<Firepos>().transform;
+                break;
+            case Character.Misaki:
+                player = FindObjectOfType<Misaki>();
+                firePoint = player.GetComponentInChildren<Firepos>().transform;
+                break;
+            case Character.Yuko:
+                player = FindObjectOfType<Yuko>();
+                firePoint = player.GetComponentInChildren<Firepos>().transform;
+                break;
+            default:
+                break;
+        }
         character_type = StartSave.Instance.character_type;
         
     }
@@ -23,8 +41,10 @@ public class Weapon : MonoBehaviour
     public virtual void Attack()
     {
     }
-    private void FixedUpdate()
+    public virtual void Attack(Vector3 shootDirection)
     {
-        Attack();
+
+        rigid.velocity = shootDirection * 5;
     }
+    
 }

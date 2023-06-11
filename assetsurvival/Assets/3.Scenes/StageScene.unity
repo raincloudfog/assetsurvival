@@ -176,6 +176,7 @@ MonoBehaviour:
   Weapons:
   - {fileID: 7077230423653545328, guid: bd2a83eb150ab4a4d83f4461ae68cd84, type: 3}
   - {fileID: 2257991688056581486, guid: 00d7b23a377f4a445a57e15826e14a0a, type: 3}
+  - {fileID: 2967526855820192121, guid: 630384ee6882e374482271e0a4bede73, type: 3}
   buttons: []
 --- !u!114 &185969762
 MonoBehaviour:
@@ -900,6 +901,144 @@ MonoBehaviour:
   target: {fileID: 0}
   smoothTime: 0.3
   offset: {x: 0, y: 11, z: -10}
+--- !u!1 &1178676189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1178676190}
+  - component: {fileID: 1178676191}
+  m_Layer: 0
+  m_Name: Firepos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1178676190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178676189}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4309777342508722709}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1178676191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178676189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2629a4bf4413aa840b6c03a9230d559a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dagger: {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
+  weapons: []
+--- !u!1 &1295468322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1295468323}
+  - component: {fileID: 1295468324}
+  m_Layer: 0
+  m_Name: Firepos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1295468323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295468322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7142403839690858120}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1295468324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295468322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2629a4bf4413aa840b6c03a9230d559a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dagger: {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
+  weapons: []
+--- !u!1 &1570726879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1570726880}
+  - component: {fileID: 1570726881}
+  m_Layer: 0
+  m_Name: Firepos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1570726880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570726879}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3741646287422476797}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1570726881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570726879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2629a4bf4413aa840b6c03a9230d559a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dagger: {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
+  weapons: []
 --- !u!1 &1710782495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,6 +1206,8 @@ MonoBehaviour:
   Weapons:
   - {fileID: 6417322823302891320, guid: 82f1e40c0cf7c5048a41bfa78b10c9d9, type: 3}
   - {fileID: 716278153578444703, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
+  - {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
+  firepos: {fileID: 0}
   player: {fileID: 0}
   LevelUPUI: {fileID: 185969759}
 --- !u!4 &2125313082
@@ -7314,6 +7455,7 @@ Transform:
   - {fileID: 7157959921974182371}
   - {fileID: 2706565811841985902}
   - {fileID: 6133265523718037703}
+  - {fileID: 1570726880}
   m_Father: {fileID: 426578478}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8344,6 +8486,7 @@ Transform:
   - {fileID: 3939769629961538356}
   - {fileID: 5933963295513280214}
   - {fileID: 6303247545188507295}
+  - {fileID: 1178676190}
   m_Father: {fileID: 426578478}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12089,6 +12232,7 @@ Transform:
   - {fileID: 7961610156877316009}
   - {fileID: 758893877945748043}
   - {fileID: 1128204365576464898}
+  - {fileID: 1295468323}
   m_Father: {fileID: 426578478}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -27,7 +27,12 @@ public class Sword : Weapon
         critPower = 1.5f;
         critpersent = 0.5f;
     }
-    
+
+    private void FixedUpdate()
+    {
+        Attack();
+    }
+
 
     public override void Attack()
     {

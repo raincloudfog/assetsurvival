@@ -12,6 +12,7 @@ public class Zombie : Enemy
         this.maxHP = data.Hp;
         Agent.speed = data.movespeed;
         this.player = player;
+        transform.localScale = new Vector3(1, 1, 1);
     }
 
     

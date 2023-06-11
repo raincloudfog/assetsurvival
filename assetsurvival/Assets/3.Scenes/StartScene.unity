@@ -187,21 +187,16 @@ MonoBehaviour:
     Hp : 80
 
 
-    Weapon:
-
-    Sword
-
-
     speed : 7
 
 
-    delay
-    : 0.5
+    delay : 0.5
 
 
     damage Plus
 
-    : 25%
+    :
+    25%
 
 '
   m_isRightToLeft: 0
@@ -230,7 +225,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.5
+  m_fontSize: 34.05
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -414,6 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322c573d90cb66649bc3d2feb2ff8c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character_type: 0
 --- !u!4 &69602056
 Transform:
   m_ObjectHideFlags: 0
@@ -493,21 +489,16 @@ MonoBehaviour:
     Hp : 150
 
 
-    Weapon:
-
-    Wand
-
-
     speed : 5
 
 
-    delay
-    : 1
+    delay : 1
 
 
     damage Plus
 
-    : 0%
+    :
+    0%
 
 '
   m_isRightToLeft: 0
@@ -536,7 +527,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.5
+  m_fontSize: 34.05
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1722,19 +1713,14 @@ MonoBehaviour:
     Hp : 100
 
 
-    Weapon:
-
-    Sword
-
-
     speed : 5
 
 
-    delay
-    : 1
+    delay : 1
 
 
-    damage Plus
+    damage
+    Plus
 
     : 50%
 
@@ -1765,7 +1751,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 33.5
+  m_fontSize: 34.05
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1

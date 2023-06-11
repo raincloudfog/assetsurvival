@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 public class ButtonManager : SingletonMono<ButtonManager>
 {
+    
     List<Button> Waepon_Buttons = new List<Button>();
-    List<Weapon> weaPons = new List<Weapon>();
-    public Weapon[] Weapons;
-    [SerializeField]Player player;
+    public List<Weapon> weaPons = new List<Weapon>();
+    public Weapon[] Weapons; // 무기 종류
+    public Firepos firepos; // 단검 나가는 위치
+    [SerializeField]Player player; // 플레이어
     [SerializeField] GameObject LevelUPUI; // 레벨업시 UI
 
     private void Start()
@@ -64,5 +66,24 @@ public class ButtonManager : SingletonMono<ButtonManager>
         LevelUPUI.SetActive(false); // 진행시 꺼주기
     }
 
+    /// <summary>
+    /// firepos에 단검을 줍니다.
+    /// </summary>
+    public void OnDaggerUI()
+    {
+        if (CharacterManager.Instance.Weaponcount == weaPons.Count)
+        {
+            Debug.Log("무기횟수가 한계치에 도달 했습니다."); // 무기 한계치에 도달했으니 더이상 생성 불가능.
+            LevelUPUI.SetActive(false);// 진행시 꺼주기
+            return;
+        }
+
+        Weapon obj = Instantiate(Weapons[2]); // 오브젝트 풀링 수정할것
+        
+        weaPons.Add(obj);
+        obj.gameObject.SetActive(false);
+
+        LevelUPUI.SetActive(false); // 진행시 꺼주기
+    }
 
 }

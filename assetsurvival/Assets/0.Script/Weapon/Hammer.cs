@@ -17,20 +17,7 @@ public class Hammer : Weapon
     public override void Init()
     {
         base.Init();
-        switch (CharacterManager.Instance.character_type)
-        {
-            case Character.UnityChan:
-                player = FindObjectOfType<UnityChan>();
-                break;
-            case Character.Misaki:
-                player = FindObjectOfType<Misaki>();
-                break;
-            case Character.Yuko:
-                player = FindObjectOfType<Yuko>();
-                break;
-            default:
-                break;
-        }
+        
         
         Damage = 10 * player.damagePlus;
         WeaponSpeed = 5f;
@@ -44,6 +31,11 @@ public class Hammer : Weapon
         Init();
         Debug.Log(Damage);
     }
+    private void FixedUpdate()
+    {
+        Attack();
+    }
+
     /// <summary>
     /// 해머의 공격 방식입니다.
     /// </summary>

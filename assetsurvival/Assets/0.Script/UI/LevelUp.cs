@@ -9,6 +9,7 @@ enum WeaponsButton
 {
     Hammer,
     Sword,
+    Dagger,
     Axe
 }
 public class LevelUp : MonoBehaviour
@@ -26,6 +27,7 @@ public class LevelUp : MonoBehaviour
     {
         Actions.Add(WeaponsButton.Hammer, ButtonManager.Instance.OnHammerUI);
         Actions.Add(WeaponsButton.Sword, ButtonManager.Instance.OnSwordUI);
+        Actions.Add(WeaponsButton.Dagger, ButtonManager.Instance.OnDaggerUI);
     }
     
     private void OnEnable()
@@ -35,9 +37,17 @@ public class LevelUp : MonoBehaviour
         for (int i = 0; i < randomint.Count; i++)
         {
             Debug.Log(randomint[i]);
+
+            WeaponsButton weaponsButton = (WeaponsButton)randomint[i];
+            Button obj = Instantiate(Weapons[randomint[i]]);
+            obj.transform.SetParent(this.transform);
+
+
+            obj.onClick.AddListener(Actions[weaponsButton]);
+            buttons.Add(obj);
         }
         
-        /*for (int i = 0; i < 3; i++)
+       /* for (int i = 0; i < 3; i++)
         {
             
             WeaponsButton weaponsButton = (WeaponsButton)randomint[i];
@@ -90,22 +100,18 @@ public class LevelUp : MonoBehaviour
 
     List<int> checkint2()
     {
-        List<int> aaaa = new List<int>() { 0, 1, 2 };
-        List<int> shuffle = new List<int>();
+        List<int> aaaa = new List<int>() { 0, 1, 2 }; // 이 안에 있는 숫자를 뺄겁니다.
+        List<int> shuffle = new List<int>(); // 섞어주는 용도입니다.
 
         int idx = 0;
 
-        count = aaaa.Count;
-        for (int i = 0; i < count; i++)
+        count = aaaa.Count; //aaa의 개수
+        for (int i = 0; i < count; i++) 
         {
             idx = UnityEngine.Random.Range(0, aaaa.Count);
             shuffle.Add(aaaa[idx]);
             aaaa.RemoveAt(idx);
-        }
-
-        
-
-
+        }        
         return shuffle;
         
     }

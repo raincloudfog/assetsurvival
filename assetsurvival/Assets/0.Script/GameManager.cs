@@ -8,6 +8,8 @@ public class GameManager : SingletonMono<GameManager>
     public int level = 1; // 캐릭터 레벨
     public int Exp; // 플레이어 경험치
     int MaxExp = 100; // 레벨업 까지의 경험치량 
+    public Player player;
+
 
     public GameObject LevelUPUI; // 레벨업시 UI
 

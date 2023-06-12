@@ -15,18 +15,23 @@ public class Firepos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ButtonManager.Instance.weaPons.Contains(new Dagger()))
+        if (ButtonManager.Instance.weaPons.Contains(Weapons.Dagger))
         {
             Debug.Log("왜안 뜸?");
             // 플레이어의 회전 값을 가져옴
-            Quaternion playerRotation = dagger.player.transform.rotation;
-
             // 발사 방향 계산
+            Quaternion playerRotation = CharacterManager.Instance.MainPlayer.transform.rotation ;
+           
             Vector3 shootDirection = playerRotation * Vector3.forward;
-
+            
             // 발사체 생성 및 발사
-            GameObject dag = Instantiate(dagger.gameObject, dagger.firePoint.position, playerRotation);
+            GameObject dag = Instantiate(dagger.gameObject, CharacterManager.Instance.Firepoint);
+            dag.GetComponent<Dagger>().Init();
             dag.GetComponent<Dagger>().setVec(shootDirection);
+
+            
+
+            
         }
     }
 }

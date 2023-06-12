@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public Collider[] Enemys; // 적들
     public Transform closestEnemy = null;  // 가장 가까운 적의 Transform을 저장할 변수
     public float detectionRadius = 10f;  // 탐지 반경
+    public Transform FirePoint = null;
+
 
     // Update is called once per frame
     void Update()
@@ -60,10 +62,15 @@ public class Player : MonoBehaviour
         pos.z = z;
 
         pos.Normalize();
-        transform.rotation = Quaternion.Slerp(
+        
+        if(x != 0 || z != 0)
+        {
+            transform.rotation = Quaternion.Slerp(
                 transform.rotation, Quaternion.LookRotation(pos), 0.15f
                 );
-        transform.Translate(pos * Time.deltaTime * speed, Space.World);
+            transform.Translate(pos * Time.deltaTime * speed, Space.World);
+        }
+        
 
         
 

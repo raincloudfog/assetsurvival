@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+public enum Weapons
+{
+    Hammer,
+    Sword,
+    Dagger,
+
+    End
+}
+
 public enum Character
 {
     UnityChan,

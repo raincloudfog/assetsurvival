@@ -17,8 +17,8 @@ public class Hammer : Weapon
     public override void Init()
     {
         base.Init();
-        
-        
+        weapons = Weapons.Hammer;
+
         Damage = 10 * player.damagePlus;
         WeaponSpeed = 5f;
         Delay = 1f;

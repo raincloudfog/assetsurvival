@@ -15,5 +15,9 @@ public class Zombie : Enemy
         transform.localScale = new Vector3(1, 1, 1);
     }
 
+    private void FixedUpdate()
+    {
+        
+    }
     
 }

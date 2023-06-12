@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
 
     public float Hp; // 적체력
-    public float maxHP;
+    public float maxHP; // 적 최대 체력
     public float moveSpeed; // 이동속도
     public float Damage; // 적 공격력
     public Player player;

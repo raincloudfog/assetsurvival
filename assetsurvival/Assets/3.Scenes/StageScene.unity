@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 3fbeb34b6a4616b479fbe16a8ed6a341, type: 2}
+--- !u!1 &165984034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 165984035}
+  m_Layer: 0
+  m_Name: dager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &165984035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165984034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 289557242}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &185969759
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +329,7 @@ RectTransform:
   m_Children:
   - {fileID: 185969760}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -388,7 +419,7 @@ Transform:
   m_Children:
   - {fileID: 634970998}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &257424912
 BoxCollider:
@@ -412,6 +443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 289557242}
+  - component: {fileID: 289557243}
   m_Layer: 0
   m_Name: '[Empty]'
   m_TagString: Untagged
@@ -426,14 +458,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289557241}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.45240235, y: -0.33039713, z: -0.2210033}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 165984035}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &289557243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289557241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0739eabb8e9ed9f499d8638406b4caec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dagTnf: {fileID: 165984035}
 --- !u!1 &426578477
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +512,7 @@ Transform:
   - {fileID: 4309777342508722709}
   - {fileID: 7142403839690858120}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &452735701
 GameObject:
@@ -498,7 +544,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &452735703
 MonoBehaviour:
@@ -578,8 +624,53 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &565094451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 565094452}
+  - component: {fileID: 565094453}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &565094452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565094451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1711166828}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &565094453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565094451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd94a39e888b1b14fb4c67e527455ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dagger: {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
 --- !u!1 &617902462
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +716,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &634970997
 GameObject:
@@ -978,6 +1069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dagger: {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
   weapons: []
+  dagTnf: {fileID: 165984035}
 --- !u!1 &1295468322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dagger: {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
   weapons: []
+  dagTnf: {fileID: 165984035}
 --- !u!1 &1570726879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dagger: {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
   weapons: []
+  dagTnf: {fileID: 165984035}
 --- !u!1 &1710782495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,8 +1254,9 @@ Transform:
   - {fileID: 1824542406}
   - {fileID: 2125313082}
   - {fileID: 753603826}
+  - {fileID: 565094452}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824542404
 GameObject:
@@ -1196,7 +1291,11 @@ MonoBehaviour:
   Weapons:
   - {fileID: 6417322823302891320, guid: 82f1e40c0cf7c5048a41bfa78b10c9d9, type: 3}
   - {fileID: 716278153578444703, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
+  - {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
   weaPons: []
+  Daggerdamage: 0
+  Hammerdamage: 0
+  Sworddamage: 0
 --- !u!4 &1824542406
 Transform:
   m_ObjectHideFlags: 0
@@ -1242,7 +1341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaPons: 
-  Weapons:
+  _Weapons:
   - {fileID: 6417322823302891320, guid: 82f1e40c0cf7c5048a41bfa78b10c9d9, type: 3}
   - {fileID: 716278153578444703, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
   - {fileID: 3547753184897110001, guid: ea816f7cece47574da091aaf86ab56f4, type: 3}
@@ -8626,6 +8725,7 @@ MonoBehaviour:
   closestEnemy: {fileID: 0}
   detectionRadius: 10
   FirePoint: {fileID: 1178676190}
+  anim: {fileID: 4309777342518297989}
 --- !u!54 &4309777342518297992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12419,6 +12519,7 @@ MonoBehaviour:
   closestEnemy: {fileID: 0}
   detectionRadius: 10
   FirePoint: {fileID: 1295468323}
+  anim: {fileID: 7142403839700644120}
 --- !u!54 &7142403839700644123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12604,7 +12705,12 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'Jaw'\n\tTransform 'Toes_L'\n\tTransform 'Toes_L'\n\tTransform
+    'Toes_R'\n\tTransform 'Jaw'\n\tTransform 'Toes_R'\n\tTransform 'Jaw'\n\tTransform
+    'Toes_L'\n\tTransform 'Toes_R'\n\tFrom animation clip 'RunA_Curve_FrontLeft@loop'\n\tFrom
+    animation clip 'RunA_Curve_FrontLeft@loop'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -12629,6 +12735,7 @@ MonoBehaviour:
   closestEnemy: {fileID: 0}
   detectionRadius: 10
   FirePoint: {fileID: 1570726880}
+  anim: {fileID: 7281427441451797383}
 --- !u!54 &7281427441451797386
 Rigidbody:
   m_ObjectHideFlags: 0

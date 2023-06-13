@@ -18,7 +18,12 @@ public class Player : MonoBehaviour
     public Transform closestEnemy = null;  // 가장 가까운 적의 Transform을 저장할 변수
     public float detectionRadius = 10f;  // 탐지 반경
     public Transform FirePoint = null;
+    public Animator anim; // 애니메이터
 
+    public virtual void Init()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -57,7 +62,8 @@ public class Player : MonoBehaviour
     {
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
-
+        anim.SetFloat("x", x);
+        anim.SetFloat("z", z);
         pos.x = x;
         pos.z = z;
 
@@ -88,4 +94,6 @@ public class Player : MonoBehaviour
             Rank.Instance.HighScore += 10;
         }
     }
+
+
 }

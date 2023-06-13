@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Singleton;
+using System;
+
+enum hi
+{
+    a, b,c,d,f
+}
+
 public class CharacterManager : SingletonMono<CharacterManager>
 {
     
@@ -32,4 +39,20 @@ public class CharacterManager : SingletonMono<CharacterManager>
         MainPlayer_Rotate = rotates[val];
         Firepoint = MainPlayer.FirePoint;
     }
+
+    //패턴만들때 사용할수도 있음.06월13일
+  /*  void aa()
+    {
+
+        Dictionary<hi, Action> actions = new Dictionary<hi, Action>();
+        int val = UnityEngine.Random.Range(0, 5);
+        actions.Add(hi.a, bb);
+        actions[(hi)val]();
+
+
+    }
+    void bb()
+    {
+
+    }*/
 }

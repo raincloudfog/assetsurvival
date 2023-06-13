@@ -15,7 +15,7 @@ public class Sword : Weapon
     {
         base.Init();
         weapons = Weapons.Sword;
-        Damage = 10 * player.damagePlus;
+       
         WeaponSpeed = 3f;
         Delay = 1f;
         critPower = 1.5f;
@@ -27,7 +27,16 @@ public class Sword : Weapon
     private void FixedUpdate()
     {
         Attack();
-    }   
+    }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 6)
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+            enemy.Hp -= WeaponManager.Instance.Hammerdamage;
+
+        }
+    }
+
 }

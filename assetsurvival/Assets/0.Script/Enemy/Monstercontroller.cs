@@ -9,33 +9,46 @@ public class Monstercontroller : MonoBehaviour
     public Transform parent;
     [SerializeField] Player player;
     float spawnTimer;
+    List<int> wavemonsterLength = new List<int>();
     [SerializeField]BoxCollider rangeCollider; // 박스콜라이더 크기
+    int nextWave = 0;
 
-    
+    private void Start()
+    {
+        for (int i = 5; i < 15; i++)
+        {
+            wavemonsterLength.Add(i);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+
+        StartCoroutine(Wave());
+
+    }
+    private void FixedUpdate()
+    {
         
+        
+    }
 
-        spawnTimer += Time.deltaTime;
-        if(spawnTimer > 5f)
+    void spon()
+    {
+        
+        
+        for (int i = 0; i < wavemonsterLength[nextWave]; i++)
         {
-           
-
-            spawnTimer = 0;
-            for (int i = 0; i < 5; i++)
-            {
-                GameObject responpoint = Instantiate(respon, Return_RandomPosition(), Quaternion.identity);
-                responpoint.transform.position += new Vector3(0, 3, 0);
-            }
-            
-            /*int rand = Random.Range(0, enemys.Length);
-            Enemy enemy = Instantiate(enemys[rand], Return_RandomPosition(), Quaternion.identity);
-            enemy.SetData(MonsterData.Instance.mData.monster[rand], WeaponManager.Instance.player);*/
-            
-            
-
+            GameObject responpoint = Instantiate(respon, Return_RandomPosition(), Quaternion.identity);
+            responpoint.transform.position += new Vector3(0, 3, 0);
+                
         }
+        nextWave++;
+        /*int rand = Random.Range(0, enemys.Length);
+        Enemy enemy = Instantiate(enemys[rand], Return_RandomPosition(), Quaternion.identity);
+        enemy.SetData(MonsterData.Instance.mData.monster[rand], WeaponManager.Instance.player);*/
+
     }
 
     Vector3 Return_RandomPosition()
@@ -51,5 +64,19 @@ public class Monstercontroller : MonoBehaviour
 
         Vector3 respawnPosition = OriginPosition + randomPosition;
         return respawnPosition;
+    }
+
+    IEnumerator Wave()
+    {
+        yield return new WaitForSeconds(2f);
+        spon();
+        yield return new WaitForSeconds(4f);
+        spon();
+        yield return new WaitForSeconds(6f);
+        spon();
+        yield return new WaitForSeconds(8f);
+        spon();
+        yield return new WaitForSeconds(10f);
+        spon();
     }
 }

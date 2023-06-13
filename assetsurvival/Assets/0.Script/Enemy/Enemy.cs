@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     
-   
+    
     protected Attributes.Monster data;
     
 
@@ -31,4 +31,13 @@ public class Enemy : MonoBehaviour
     {
         Agent.SetDestination(player.transform.position);   
     }
+
+    public virtual void Die()
+    {
+        if(Hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

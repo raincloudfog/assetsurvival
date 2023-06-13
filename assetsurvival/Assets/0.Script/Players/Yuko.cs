@@ -5,7 +5,7 @@ using UnityEngine;
 public class Yuko : Player
 {
     // Start is called before the first frame update
-    void Start()
+    public override void Init()
     {
         //체력 80
         // 스피드 7

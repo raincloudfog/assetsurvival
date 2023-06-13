@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class UnityChan : Player
 {
-
-    // Start is called before the first frame update
-    void Start()
+    public override void Init()
     {
         //기본체력 100
         // 스피드 5
@@ -16,8 +14,8 @@ public class UnityChan : Player
         speed = 5f;
         delay = 1;
         damagePlus = 1.5f;
-
     }
+    
 
     
 }

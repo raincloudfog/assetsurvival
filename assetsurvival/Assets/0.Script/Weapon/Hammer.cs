@@ -19,7 +19,7 @@ public class Hammer : Weapon
         base.Init();
         weapons = Weapons.Hammer;
 
-        Damage = 10 * player.damagePlus;
+        //Damage = 10 * player.damagePlus;
         WeaponSpeed = 5f;
         Delay = 1f;
         critPower = 1.5f;
@@ -29,7 +29,7 @@ public class Hammer : Weapon
     private void Start()
     {
         Init();
-        Debug.Log(Damage);
+        
     }
     private void FixedUpdate()
     {
@@ -71,5 +71,15 @@ public class Hammer : Weapon
         isComeback = true;
         isMove = false;
         yield break;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 6)
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+            enemy.Hp -= WeaponManager.Instance.Hammerdamage;
+             
+        }
     }
 }

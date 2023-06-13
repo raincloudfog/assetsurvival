@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     public float Damage; // 데미지 플롯이유는 데미지 증가 퍼센트가 있어서 소수점도 허용하려함.
     public float WeaponSpeed; // 공격 속도 
     public float Delay; // 무기의 딜레이
+    public float DamageUp;
     public float critPower; // 치명타 증가 데미지
     public float critpersent; // 치명타 확률
     public Player player; // 플레이어 위치
@@ -29,8 +30,13 @@ public class Weapon : MonoBehaviour
 
 
     }
+    public virtual void PowerUp(int DamageUp)
+    {
 
-    
+    }
+
+
+
     public virtual void Attack()
     {
     }

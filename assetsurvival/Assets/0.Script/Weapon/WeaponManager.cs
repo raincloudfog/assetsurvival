@@ -7,25 +7,30 @@ public class WeaponManager : SingletonMono<WeaponManager>
 {
     public Player player;
     public Weapon[] Weapons;
-    public List<Weapon> weaPons = new List<Weapon>(); 
+    public List<Weapon> weaPons = new List<Weapon>();
+
+    public float Daggerdamage; // 단검들 데미지
+    public float Hammerdamage;
+    public float Sworddamage; 
+    private void Awake()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        player = CharacterManager.Instance.MainPlayer;
+        player.Init();
+        Daggerdamage =  10 *player.damagePlus; // 단검데미지 설정
+        Hammerdamage = 10 * player.damagePlus;//해머 데미지 설정
+        Sworddamage = 10 * player.damagePlus;
+        
+        //Debug.Log(player.name);
+        //Debug.Log(player.damagePlus);
+        Debug.Log(Daggerdamage);
         weaPons = new List<Weapon>(/*StartSave.Instance.WeaponCount - 1*/);
-        switch (CharacterManager.Instance.character_type)
-        {
-            case Character.UnityChan:
-                player = FindObjectOfType<UnityChan>();
-                break;
-            case Character.Misaki:
-                player = FindObjectOfType<Misaki>();
-                break;
-            case Character.Yuko:
-                player = FindObjectOfType<Yuko>();
-                break;
-            default:
-                break;
-        }
+        
         
         
     }
@@ -59,5 +64,21 @@ public class WeaponManager : SingletonMono<WeaponManager>
             weaPons.Add(obj);
 
         }
+    }
+
+    public void DaggerPowerUp(int DamageUp)
+    {
+         
+        Daggerdamage += DamageUp;
+    }
+    public void HammerPowerUp(int DamageUp)
+    {
+
+        Hammerdamage += DamageUp;
+    }
+    public void SwordPowerUp(int DamageUp)
+    {
+
+        Sworddamage += DamageUp;
     }
 }

@@ -6,14 +6,25 @@ public class Dagger : Weapon
 {
 
     Vector3 shootDirection; // 날아갈 방향
+    float timer;
 
     public override void Init()
     {
-        weapons = Weapons.Dagger;
-
         base.Init();
+        weapons = Weapons.Dagger;
+        transform.localRotation = Quaternion.Euler(90,0,0);
+        transform.localPosition = Vector3.zero;
+       
+        
+        
+        WeaponSpeed = 3f;
+        Delay = 1f;
+        critPower = 1.5f;
+        critpersent = 0.5f;
+        
         
     }
+    
 
     public void setVec(Vector3 shootDirection) // 위치값 가져옴
     {
@@ -23,11 +34,31 @@ public class Dagger : Weapon
     public override void Attack() // 어택은 픽시드 업데이트로 실행됨
     {
         
-        rigid.velocity = shootDirection * 5;
+        rigid.velocity = shootDirection * 10;
     }
 
+    
     private void FixedUpdate()
     {
+        timer += Time.deltaTime;
+        if(timer > 5)
+        {
+            timer = 0;
+
+            ObjectPool.Instance.daggersreturn(this); // 본인을 없애준다.
+            //Destroy(gameObject, 2f);
+        }
         Attack();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 6)
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+            enemy.Hp -= WeaponManager.Instance.Daggerdamage;
+            ObjectPool.Instance.daggersreturn(this); // 본인을 없애준다.
+        }
+    }
+
 }

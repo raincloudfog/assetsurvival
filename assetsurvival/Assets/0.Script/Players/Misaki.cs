@@ -5,7 +5,7 @@ using UnityEngine;
 public class Misaki : Player
 {
     // Start is called before the first frame update
-    void Start()
+    public override void Init()
     {
         // 체력 150
         // 스피드 5

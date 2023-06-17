@@ -22,7 +22,7 @@ public class WeaponManager : SingletonMono<WeaponManager>
     {
         player = CharacterManager.Instance.MainPlayer;
         player.Init();
-        Daggerdamage =  10 *player.damagePlus; // 단검데미지 설정
+        Daggerdamage =  60 *player.damagePlus; // 단검데미지 설정
         Hammerdamage = 10 * player.damagePlus;//해머 데미지 설정
         Sworddamage = 10 * player.damagePlus;
         
@@ -49,7 +49,7 @@ public class WeaponManager : SingletonMono<WeaponManager>
                 Debug.Log("무기횟수가 한계치에 도달 했습니다."); // 무기 한계치에 도달했으니 더이상 생성 불가능.
                 return;
             }
-            GameManager.Instance.Exp += 100;
+            GameManager.Instance.SetExp(100);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {

@@ -30,35 +30,22 @@ public class LevelUp : MonoBehaviour
         Actions.Add(WeaponsButton.Dagger, ButtonManager.Instance.OnDaggerUI);
     }
     
-    private void OnEnable()
+    private void OnEnable() // 활성화 될시
     {
-        Time.timeScale = 0;
-        randomint = checkint2();
-        for (int i = 0; i < randomint.Count; i++)
+        Time.timeScale = 0; // 시간을 멈추고
+        randomint = checkint2(); //랜덤 인트 값 넣어주고
+        for (int i = 0; i < randomint.Count; i++) // 랜덤인트값의 카운트수만큼
         {
             Debug.Log(randomint[i]);
 
-            WeaponsButton weaponsButton = (WeaponsButton)randomint[i];
+            WeaponsButton weaponsButton = (WeaponsButton)randomint[i]; 
             Button obj = Instantiate(Weapons[randomint[i]]);
             obj.transform.SetParent(this.transform);
 
 
             obj.onClick.AddListener(Actions[weaponsButton]);
             buttons.Add(obj);
-        }
-        
-       /* for (int i = 0; i < 3; i++)
-        {
-            
-            WeaponsButton weaponsButton = (WeaponsButton)randomint[i];
-            Button obj = Instantiate(Weapons[i]);
-            obj.transform.SetParent(this.transform);
-            
-            
-            obj.onClick.AddListener(Actions[weaponsButton]);
-            buttons.Add(obj);
-        }*/
-        
+        }                       
     }
     
     private void OnDisable()
@@ -72,7 +59,7 @@ public class LevelUp : MonoBehaviour
         buttons.Clear();
     }
 
-    List<int> checkint() // 리스트에 인트 확인
+    /*List<int> checkint() // 리스트에 인트 확인
     {
         List<int> list = new List<int>();
         while(true)
@@ -96,7 +83,7 @@ public class LevelUp : MonoBehaviour
         
         
         return list;
-    }
+    }*/
 
     List<int> checkint2()
     {

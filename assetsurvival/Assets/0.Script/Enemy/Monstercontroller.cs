@@ -5,7 +5,7 @@ using UnityEngine;
 public class Monstercontroller : MonoBehaviour
 {
     public GameObject rangeObject; // 본체
-    public GameObject respon; // 소환 직전에 표시
+    public GameObject respon; // 소환 직전에 표시되는 오브젝트
     public Transform parent;
     [SerializeField] Player player;
     float spawnTimer;
@@ -19,20 +19,10 @@ public class Monstercontroller : MonoBehaviour
         {
             wavemonsterLength.Add(i);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
         StartCoroutine(Wave());
+    }
 
-    }
-    private void FixedUpdate()
-    {
-        
-        
-    }
+    
 
     void spon()
     {

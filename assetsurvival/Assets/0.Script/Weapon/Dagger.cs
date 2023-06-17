@@ -56,7 +56,7 @@ public class Dagger : Weapon
         if(other.gameObject.layer == 6)
         {
             Enemy enemy = other.GetComponent<Enemy>();
-            enemy.Hp -= WeaponManager.Instance.Daggerdamage;
+            enemy.Hit(WeaponManager.Instance.Daggerdamage);
             ObjectPool.Instance.daggersreturn(this); // 본인을 없애준다.
         }
     }

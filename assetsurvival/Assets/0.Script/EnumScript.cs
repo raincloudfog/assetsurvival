@@ -19,6 +19,15 @@ public enum Character
     Yuko
 }
 
+public enum Expitem
+{
+    Blue,
+    Green,
+    Red,
+
+    End
+}
+
 public class EnumScript : MonoBehaviour
 {
     

@@ -14,29 +14,19 @@ public class GameManager : SingletonMono<GameManager>
     public GameObject LevelUPUI; // 레벨업시 UI
 
 
-    // Start is called before the first frame update
-    void Start()
+    
+    public void SetExp(int _Exp)
     {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void FixedUpdate()
-    {
-        if(Exp >= MaxExp)
+        Exp += _Exp;
+       
+        if (Exp >= MaxExp)
         {
+            Debug.Log("레벨업");
             level += 1;
             Exp = 0;
             MaxExp += level * 10;
             LevelUPUI.SetActive(true);
-        }
-        else
-        {
-            //LevelUPUI.SetActive(false);
         }
     }
 }

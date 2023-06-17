@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 136043099458248162}
   - component: {fileID: 7523808886899614889}
   m_Layer: 6
-  m_Name: FreeZombieSimpleMovement
+  m_Name: Zombie1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,6 +387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa97bfdfe8f216747832816a202ef9e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Exps:
+  - {fileID: -2948285000618128213, guid: 4abaef85bf63a204a9f22d58c3d6b34f, type: 3}
+  - {fileID: -1574317953452384602, guid: 61c1fcc546a5a3a46af2c72328493f54, type: 3}
+  - {fileID: -9005272299156269053, guid: 8f85acd1f9907bf4587ac61838efbf76, type: 3}
   Hp: 0
   maxHP: 0
   moveSpeed: 0

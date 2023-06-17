@@ -10,8 +10,10 @@ public class Enemy : MonoBehaviour
     
     
     protected Attributes.Monster data;
-    
-
+    [SerializeField]
+    protected ExpPlus[] Exps;
+    protected Expitem _ExpItem;
+    protected int rand = 0;
 
     public float Hp; // 적체력
     public float maxHP; // 적 최대 체력
@@ -19,7 +21,13 @@ public class Enemy : MonoBehaviour
     public float Damage; // 적 공격력
     public Player player;
     [SerializeField] protected NavMeshAgent Agent;
-    // Start is called before the first frame update
+
+    
+    /// <summary>
+    /// 소환 될때 세팅될 값
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="player"></param>
     public virtual void SetData(Attributes.Monster data, Player player)
     {
         
@@ -32,10 +40,16 @@ public class Enemy : MonoBehaviour
         Agent.SetDestination(player.transform.position);   
     }
 
-    public virtual void Die()
+    public virtual void Hit(float Damage)
     {
+        Hp -= Damage;
         if(Hp <= 0)
         {
+            rand = Random.Range(1, 3);
+            Debug.Log(rand + " 랜드랑 ");
+            ExpPlus obj = Instantiate(Exps[rand], transform);
+            obj.transform.SetParent(null);
+            obj.Init();
             Destroy(gameObject);
         }
     }

@@ -10,7 +10,7 @@ public class GameManager : SingletonMono<GameManager>
     int MaxExp = 100; // 레벨업 까지의 경험치량 
     public Player player;
 
-
+    public GameObject waveClear; // 웨이브 끝날시
     public GameObject LevelUPUI; // 레벨업시 UI
 
 
@@ -27,6 +27,14 @@ public class GameManager : SingletonMono<GameManager>
             Exp = 0;
             MaxExp += level * 10;
             LevelUPUI.SetActive(true);
+        }
+    }
+
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            waveClear.SetActive(true);
         }
     }
 }

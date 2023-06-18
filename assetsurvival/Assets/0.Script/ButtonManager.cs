@@ -116,5 +116,23 @@ public class ButtonManager : SingletonMono<ButtonManager>
     }
 
 
+    public void OnHPPlus()
+    {
+        Debug.Log("체력증가");
+    }
+    public void OnDamagePlus()
+    {
+        Debug.Log("데미지 증가");
+    }
+    public void CriticalPlus()
+    {
+        Debug.Log("크리티컬 데미지 증가");
+    }
+    public void CriticalChance()
+    {
+        Debug.Log("크리티컬 퍼센트 증가");
+    }
+
+
 
 }

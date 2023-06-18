@@ -19,7 +19,7 @@ public class LevelUp : MonoBehaviour
     [SerializeField]Button[] Weapons;
     public List<Button> buttons = new List<Button>(); // 버튼 담는 그릇
     Dictionary<WeaponsButton, UnityEngine.Events.UnityAction> Actions =
-        new Dictionary<WeaponsButton, UnityEngine.Events.UnityAction>();
+        new Dictionary<WeaponsButton, UnityEngine.Events.UnityAction>(); 
 
     int count;
 
@@ -41,7 +41,7 @@ public class LevelUp : MonoBehaviour
             WeaponsButton weaponsButton = (WeaponsButton)randomint[i]; 
             Button obj = Instantiate(Weapons[randomint[i]]);
             obj.transform.SetParent(this.transform);
-
+            
 
             obj.onClick.AddListener(Actions[weaponsButton]);
             buttons.Add(obj);
@@ -102,4 +102,5 @@ public class LevelUp : MonoBehaviour
         return shuffle;
         
     }
+
 }

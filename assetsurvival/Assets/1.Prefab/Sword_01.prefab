@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2300968513234132779}
   - component: {fileID: 2142021146967332986}
   - component: {fileID: -2993127822642201886}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355312524381552382}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60,14 +60,13 @@ MonoBehaviour:
   Damage: 0
   WeaponSpeed: 0
   Delay: 0
+  DamageUp: 0
   critPower: 0
   critpersent: 0
   player: {fileID: 0}
   rigid: {fileID: -2993127822642201886}
   character_type: 0
   firePoint: {fileID: 0}
-  radius: 1
-  angle: 0
 --- !u!23 &2300968513234132779
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Monstercontroller : MonoBehaviour
 {
@@ -9,36 +11,69 @@ public class Monstercontroller : MonoBehaviour
     public Transform parent;
     [SerializeField] Player player;
     float spawnTimer;
-    List<int> wavemonsterLength = new List<int>();
+    List<int> wavemonsterLength = new List<int>(); //소환되는 몬스터의 수
     [SerializeField]BoxCollider rangeCollider; // 박스콜라이더 크기
-    int nextWave = 0;
+    int nextWave = 1;
+
+    [SerializeField] GameObject waveStop; // 웨이브 끝났을때 나오는 증가량
+
+    Collider[] checkMonster;
+
+    [SerializeField] int Timeset; // 기본 타이머 시간
+    [SerializeField] Text TimerText; // 타이머 텍스트
+    [SerializeField] float time; // 뺄시간
+
+    Vector3 tempvec = Vector3.zero;
 
     private void Start()
-    {
+    {        
         for (int i = 5; i < 15; i++)
         {
-            wavemonsterLength.Add(i);
+            wavemonsterLength.Add(i + 1);
         }
         StartCoroutine(Wave());
+        Timeset = 30;
+        
     }
 
-    
+    private void FixedUpdate()
+    {     
+        check();
+    }
 
     void spon()
-    {
-        
+    {        
         
         for (int i = 0; i < wavemonsterLength[nextWave]; i++)
         {
+            //tempvec.z += 0.4f;
             GameObject responpoint = Instantiate(respon, Return_RandomPosition(), Quaternion.identity);
+            //GameObject responpoint = Instantiate(respon, tempvec, Quaternion.identity);
             responpoint.transform.position += new Vector3(0, 3, 0);
                 
         }
         nextWave++;
-        /*int rand = Random.Range(0, enemys.Length);
-        Enemy enemy = Instantiate(enemys[rand], Return_RandomPosition(), Quaternion.identity);
-        enemy.SetData(MonsterData.Instance.mData.monster[rand], WeaponManager.Instance.player);*/
+       
 
+    }
+
+    void check()
+    {               
+        time  += Time.deltaTime;
+        if(time >= 1)
+        {            
+            Timeset -= (int)time;
+            time = 0;
+        }
+        
+        TimerText.text = Timeset.ToString();
+        if (Timeset <= 0)
+        {
+            Time.timeScale = 0;
+            time = 0;
+            Timeset = 30;
+            waveStop.SetActive(true);
+        }                    
     }
 
     Vector3 Return_RandomPosition()
@@ -68,5 +103,6 @@ public class Monstercontroller : MonoBehaviour
         spon();
         yield return new WaitForSeconds(10f);
         spon();
+        
     }
 }

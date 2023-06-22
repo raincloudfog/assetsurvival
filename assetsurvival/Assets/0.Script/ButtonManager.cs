@@ -18,8 +18,11 @@ public class ButtonManager : SingletonMono<ButtonManager>
     [Tooltip("무기들을 넣어줄 공간")]
     public Weapon[] _Weapons; // 무기 종류
     public Firepos firepos; // 단검 나가는 위치
+
+    
     [SerializeField]Player player; // 플레이어
     [SerializeField] GameObject LevelUPUI; // 레벨업시 UI
+    [SerializeField] GameObject WaveClearUI; // 웨이브 끝났을시 UI
 
     private void Start()
     {
@@ -118,19 +121,30 @@ public class ButtonManager : SingletonMono<ButtonManager>
 
     public void OnHPPlus()
     {
+        player.MaxHP += 50;
+        player.Hp = player.MaxHP;
         Debug.Log("체력증가");
+        WaveClearUI.SetActive(false);
+        
     }
     public void OnDamagePlus()
     {
+        player.damagePlus += 0.5f;
         Debug.Log("데미지 증가");
+        WaveClearUI.SetActive(false);
+
     }
     public void CriticalPlus()
     {
+        player.CriticalPlus += 1f;
         Debug.Log("크리티컬 데미지 증가");
+        WaveClearUI.SetActive(false);
     }
     public void CriticalChance()
     {
+        player.CriticalChance += 0.1f;
         Debug.Log("크리티컬 퍼센트 증가");
+        WaveClearUI.SetActive(false);
     }
 
 

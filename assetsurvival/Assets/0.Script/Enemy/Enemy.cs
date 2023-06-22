@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    // Update is called once per frame
+    
     void Update()
     {
         Agent.SetDestination(player.transform.position);   
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
         if(Hp <= 0)
         {
             rand = Random.Range(1, 3);
-            Debug.Log(rand + " ·£µå¶û ");
+            
             ExpPlus obj = Instantiate(Exps[rand], transform);
             obj.transform.SetParent(null);
             obj.Init();

@@ -11,9 +11,12 @@ public class Player : MonoBehaviour
 
     //아이템을 밖에서 사용하기위해 퍼블릭함 get;set으로 바꿔도됨.
     public int Hp; // 체력
+    public int MaxHP;//최대 체력
     public float speed; // 이동 속도
     public float delay; // 무기 딜레이
     public float damagePlus; // 무기 데미지 상승
+    public float CriticalChance; // 크리티컬 찬스
+    public float CriticalPlus; //크리 데미지 증가
     public Collider[] Enemys; // 적들
     public Transform closestEnemy = null;  // 가장 가까운 적의 Transform을 저장할 변수
     public float detectionRadius = 10f;  // 탐지 반경

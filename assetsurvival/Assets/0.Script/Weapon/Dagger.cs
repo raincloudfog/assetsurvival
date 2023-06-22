@@ -53,10 +53,12 @@ public class Dagger : Weapon
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("무언가에는 닿였다."+ other.gameObject);
         if(other.gameObject.layer == 6)
         {
-            Enemy enemy = other.GetComponent<Enemy>();
-            enemy.Hit(WeaponManager.Instance.Daggerdamage);
+            Debug.Log("맞았다");
+            ZombieHIt enemy = other.GetComponentInParent<ZombieHIt>();
+            enemy.zombieHit(WeaponManager.Instance.Daggerdamage);
             ObjectPool.Instance.daggersreturn(this); // 본인을 없애준다.
         }
     }

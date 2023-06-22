@@ -11,10 +11,13 @@ public class Misaki : Player
         // Ω∫««µÂ 5
         // µÙ∑π¿Ã 1
         // µÙ¡ı∞° 1πË
+        MaxHP = 150;
         Hp = 150;
         speed = 5f;
         delay = 1f;
         damagePlus = 1f;
+        CriticalChance = 0.2f;
+        CriticalPlus = 2.0f;
     }
 
     

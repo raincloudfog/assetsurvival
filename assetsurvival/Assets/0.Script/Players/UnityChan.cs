@@ -10,10 +10,13 @@ public class UnityChan : Player
         // 스피드 5
         // 무기 딜레이 1
         // 딜 증가 1.5배
+        MaxHP = 100;
         Hp = 100;
         speed = 5f;
         delay = 1;
         damagePlus = 1.5f;
+        CriticalChance = 0.2f;
+        CriticalPlus = 2.0f;
     }
     
 

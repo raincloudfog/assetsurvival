@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Sword : Weapon
 {
-    
-    
-    private void OnEnable()
+
+    Collider[] colliders;
+    /*private void OnEnable()
     {
         
-    }
+    }*/
 
     public override void Init()
     {
@@ -27,16 +27,25 @@ public class Sword : Weapon
     private void FixedUpdate()
     {
         Attack();
+
+        
     }
-
-    private void OnTriggerEnter(Collider other)
+    public override void Attack()
     {
-        if (other.gameObject.layer == 6)
+        colliders = Physics.OverlapSphere(transform.position, 2, LayerMask.GetMask("Enemy"));
+        foreach (Collider item in colliders)
         {
-            Enemy enemy = other.GetComponent<Enemy>();
-            enemy.Hp -= WeaponManager.Instance.Hammerdamage;
-
+            if (item.GetComponent<ZombieHIt>() != null)
+            {
+                Debug.Log("좀비를 소드로 때리는 중");
+                ZombieHIt zombieHIt = item.GetComponent<ZombieHIt>();
+                zombieHIt.zombieHit(WeaponManager.Instance.Hammerdamage * Time.deltaTime);
+                
+            }
         }
     }
+
+
+    
 
 }

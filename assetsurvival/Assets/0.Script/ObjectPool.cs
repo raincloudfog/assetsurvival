@@ -13,7 +13,7 @@ public class ObjectPool : SingletonMono<ObjectPool>
     public void daggersreturn(Dagger _dagger)
     {
         daggers.Enqueue(_dagger);
-
+        Debug.Log("사라져라");
         //_dagger.transform.localPosition = Vector3.zero;
         _dagger.gameObject.SetActive(false);
     }

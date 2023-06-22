@@ -12,7 +12,7 @@ public class WeaponRotation : MonoBehaviour
     float radius = 3; // 도는 반지름
     float degree = 0; //  회전할 각도
     float rad = 0;// 각도 계산
-    float speed = 20; // 회전 속도
+    float speed = 50; // 회전 속도
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +39,7 @@ public class WeaponRotation : MonoBehaviour
                 z = radius * Mathf.Cos(rad);
                 vec.x = x;
                 vec.z = z;
+                vec.y = 0.5f;
                 rotateObj.transform.position = transform.position + vec; // 주가 되는 것의 위치(플레이어) + 주가되는 것의 위치로부터 반지름 만큼 떨어져있고
                                                                          // 원 위의 위치에 해당되는 값으로 계속 업데이트 해줌
                 rotateObj.transform.rotation = Quaternion.Euler(90, degree, 0); // 눕히기 위해서 x로 90도 돌리고,

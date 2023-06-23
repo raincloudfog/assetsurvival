@@ -48,7 +48,7 @@ public class ButtonManager : SingletonMono<ButtonManager>
         }
 
         Weapon obj = Instantiate(_Weapons[0]); // 오브젝트 풀링 수정 할것
-        obj.transform.position = player.transform.position + new Vector3(0, 0, 2);
+        //obj.transform.position = player.transform.position + new Vector3(0, 0, 2);
         obj.transform.SetParent(null);
         obj.Init();
         weaPons.Add(obj.weapons);

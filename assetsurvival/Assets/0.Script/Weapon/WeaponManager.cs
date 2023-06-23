@@ -28,7 +28,7 @@ public class WeaponManager : SingletonMono<WeaponManager>
         
         //Debug.Log(player.name);
         //Debug.Log(player.damagePlus);
-        Debug.Log(Daggerdamage);
+        //Debug.Log(Daggerdamage);
         weaPons = new List<Weapon>(/*StartSave.Instance.WeaponCount - 1*/);
         
         

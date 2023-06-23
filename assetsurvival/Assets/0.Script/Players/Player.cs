@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     
 
     //아이템을 밖에서 사용하기위해 퍼블릭함 get;set으로 바꿔도됨.
-    public int Hp; // 체력
+    public float Hp; // 체력
     public int MaxHP;//최대 체력
     public float speed; // 이동 속도
     public float delay; // 무기 딜레이
@@ -97,6 +97,16 @@ public class Player : MonoBehaviour
             Rank.Instance.HighScore += 10;
         }
     }
+
+    public virtual void HIt(float hitdamage)
+    {
+        Hp -= hitdamage;
+        if(Hp <= 0)
+        {
+            Debug.Log("죽었습니다.");
+        }
+    }
+
 
 
 }

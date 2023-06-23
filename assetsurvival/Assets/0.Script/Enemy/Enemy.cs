@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     protected ExpPlus[] Exps;
     protected Expitem _ExpItem;
     protected int rand = 0;
+    [SerializeField] Material material;
+    [SerializeField] Material[] GetMaterials;
+    [SerializeField]SpriteRenderer spr;
 
     public float Hp; // 적체력
     public float maxHP; // 적 최대 체력
@@ -43,6 +46,7 @@ public class Enemy : MonoBehaviour
     public virtual void Hit(float Damage)
     {
         Hp -= Damage;
+        
         if(Hp <= 0)
         {
             rand = Random.Range(1, 3);
@@ -53,5 +57,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    
 
 }

@@ -241,8 +241,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombie: {fileID: 6815287841996937771}
   material:
-  - {fileID: 2100000, guid: 505c715e0fdb50f4fb8e906ce5e8d288, type: 2}
   - {fileID: 2100000, guid: 9fb1835b082c0a54e90f8fee1335b69f, type: 2}
+  - {fileID: 2100000, guid: 505c715e0fdb50f4fb8e906ce5e8d288, type: 2}
+  origin: {fileID: 0}
+  red: {fileID: 2100000, guid: 24efa5b8a8500c34d907c8a03b018ea7, type: 2}
 --- !u!137 &137126759817079526
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

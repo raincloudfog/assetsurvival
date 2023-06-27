@@ -7,8 +7,8 @@ public class ZombieHIt : MonoBehaviour
     [SerializeField] Zombie zombie; // 좀비 히트
 
     [SerializeField] Material[] material;
-
-
+    [SerializeField] Material origin;
+    [SerializeField] Material red;
 
 
     public void zombieHit(float damage)
@@ -28,11 +28,11 @@ public class ZombieHIt : MonoBehaviour
 
     public virtual IEnumerator Hitcolor()
     {
-        material[0].color = Color.red;
-        material[1].color = Color.red;
+        this.GetComponent<Renderer>().material = red;
+        
         yield return new WaitForSeconds(0.3f);
-        material[0].color = new Color(1, 1, 1);
-        material[1].color = new Color(1, 1, 1);
+        this.GetComponent<Renderer>().materials = material;
+        
         yield break;
     }
 }

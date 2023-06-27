@@ -21,7 +21,4 @@ public enum Locations
 
 public enum StudentState { RestAndSleep, studyHard, TakeAExam, PlayAGame, HitTheBottle}
 
-public class EnumScript : MonoBehaviour
-{
-    
-}
+

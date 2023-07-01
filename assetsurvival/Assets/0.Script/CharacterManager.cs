@@ -21,6 +21,8 @@ public class CharacterManager : SingletonMono<CharacterManager>
     public Player MainPlayer=null; // 메인 캐릭터
     public WeaponRotation MainPlayer_Rotate = null; // 검이 돌아갈수 있는 캐릭터 스크립트
     public Transform Firepoint = null; // 단검 나가는 방식
+    public BossTree boss;
+
 
     private void Awake()
     {
@@ -38,6 +40,7 @@ public class CharacterManager : SingletonMono<CharacterManager>
         MainPlayer = players[val];
         MainPlayer_Rotate = rotates[val];
         Firepoint = MainPlayer.FirePoint;
+        boss.Init();
     }
 
     //패턴만들때 사용할수도 있음.06월13일

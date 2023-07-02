@@ -14,7 +14,7 @@ public class PlayerNear : Node
 
     public override NodeState Evaluate()
     {
-        colliders = Physics.OverlapSphere(TF.position, 5,LayerMask.GetMask("Player"));
+        colliders = Physics.OverlapSphere(TF.position, 1,LayerMask.GetMask("Player"));
 
         if(colliders.Length > 0)
         {

@@ -19,10 +19,16 @@ public class BossMove : Node
 
     public override NodeState Evaluate()
     {
+        anim.SetBool("Walk", true);
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Z_Idle") == true)
+        {
+        }
+        else 
+        {
+            Agent.SetDestination(player.position);
+        }
         
 
-        Agent.SetDestination(player.position);
-        anim.SetBool("Walk", true);
         return NodeState.Running;
     }
 

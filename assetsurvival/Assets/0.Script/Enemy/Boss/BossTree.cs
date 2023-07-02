@@ -26,7 +26,7 @@ public class BossTree : BehaviorTree
         {
              new SequenceNode(new List<Node>{
                  new PlayerNear(transform),
-                 new BossCanAttack(rigid, anim),
+                 new BossCanAttack(transform,rigid, anim,PlayerTf),
              }),
             new BossMove(Agent, PlayerTf.transform, anim)
         });

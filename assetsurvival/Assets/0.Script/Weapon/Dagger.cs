@@ -51,16 +51,22 @@ public class Dagger : Weapon
         Attack();
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
-        Debug.Log("무언가에는 닿였다."+ other.gameObject);
-        if(other.gameObject.layer == 6)
+        if (other.gameObject.layer == 6)
         {
-            Debug.Log("맞았다");
-            ZombieHIt enemy = other.GetComponentInParent<ZombieHIt>();
-            enemy.zombieHit(WeaponManager.Instance.Daggerdamage);
-            ObjectPool.Instance.daggersreturn(this); // 본인을 없애준다.
+            if (other.GetComponent<ZombieHIt>() == true)
+            {
+                ZombieHIt enemy = other.GetComponent<ZombieHIt>();
+                enemy.zombieHit(WeaponManager.Instance.Daggerdamage);
+            }
+            else if (other.GetComponent<BossTree>() == true)
+            {
+                BossTree boss = other.GetComponent<BossTree>();
+                boss.Hit(WeaponManager.Instance.Daggerdamage);
+                
+            }
+            ObjectPool.Instance.daggersreturn(this);
         }
     }
-
 }

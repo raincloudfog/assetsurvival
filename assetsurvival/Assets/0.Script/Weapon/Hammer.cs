@@ -89,12 +89,21 @@ public class Hammer : Weapon
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 6)
         {
-            ZombieHIt enemy = other.GetComponent<ZombieHIt>();
-            enemy.zombieHit(WeaponManager.Instance.Hammerdamage);                                           
+            if(other.GetComponent<ZombieHIt>() == true)
+            {
+                ZombieHIt enemy = other.GetComponent<ZombieHIt>();
+                enemy.zombieHit(WeaponManager.Instance.Hammerdamage);
+            }
+            else if(other.GetComponent<BossTree>() == true)
+            {
+                BossTree boss = other.GetComponent<BossTree>();
+                boss.Hit(WeaponManager.Instance.Hammerdamage);
+            }
+                                                    
         }
     }
 }

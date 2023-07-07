@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// FSM¿¬½À¿ë
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     PlayerState playerState;

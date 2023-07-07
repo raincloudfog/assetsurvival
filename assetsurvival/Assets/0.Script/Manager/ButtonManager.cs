@@ -129,24 +129,24 @@ public class ButtonManager : SingletonMono<ButtonManager>
     }
     public void OnDamagePlus()
     {
-        player.damagePlus += 0.5f;
+        player.damagePlus += 0.05f;
         Debug.Log("데미지 증가");
         WaveClearUI.SetActive(false);
 
     }
     public void CriticalPlus()
     {
-        player.CriticalPlus += 1f;
+        player.CriticalPlus += 0.05f;
         Debug.Log("크리티컬 데미지 증가");
         WaveClearUI.SetActive(false);
     }
     public void CriticalChance()
     {
-        player.CriticalChance += 0.1f;
+        player.CriticalChance += 0.05f;
         Debug.Log("크리티컬 퍼센트 증가");
         WaveClearUI.SetActive(false);
     }
 
-
+    
 
 }

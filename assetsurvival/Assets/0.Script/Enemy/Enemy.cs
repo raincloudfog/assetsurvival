@@ -42,7 +42,10 @@ public class Enemy : MonoBehaviour
     {
         Agent.SetDestination(player.transform.position);   
     }
-
+    /// <summary>
+    /// 좀비 때리는 함수
+    /// </summary>
+    /// <param name="Damage"></param>
     public virtual void Hit(float Damage)
     {
         Hp -= Damage;
@@ -50,11 +53,11 @@ public class Enemy : MonoBehaviour
         if(Hp <= 0)
         {
             rand = Random.Range(1, 3);
-            
             ExpPlus obj = Instantiate(Exps[rand], transform);
             obj.transform.SetParent(null);
             obj.Init();
-            Destroy(gameObject);
+            GameManager.Instance.ZombieKillCount++;
+            ObjectPool.Instance.ZombieReturn(this);
         }
     }
 

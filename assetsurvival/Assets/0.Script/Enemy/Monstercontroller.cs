@@ -17,8 +17,6 @@ public class Monstercontroller : MonoBehaviour
 
     [SerializeField] GameObject waveStop; // 웨이브 끝났을때 나오는 증가량
 
-    Collider[] checkMonster;
-
     [SerializeField] int Timeset; // 기본 타이머 시간
     [SerializeField] Text TimerText; // 타이머 텍스트
     [SerializeField] float time; // 뺄시간
@@ -32,6 +30,7 @@ public class Monstercontroller : MonoBehaviour
             wavemonsterLength.Add(i + 1);
         }
         StartCoroutine(Wave());
+
         Timeset = 30;
         
     }
@@ -40,23 +39,27 @@ public class Monstercontroller : MonoBehaviour
     {     
         check();
     }
-
+    /// <summary>
+    /// 몹소환
+    /// </summary>
     void spon()
     {        
         
         for (int i = 0; i < wavemonsterLength[nextWave]; i++)
         {
             //tempvec.z += 0.4f;
-            GameObject responpoint = Instantiate(respon, Return_RandomPosition(), Quaternion.identity);
+            GameObject responpoint = ObjectPool.Instance.ResponDequeue();
+            responpoint.transform.position = Return_RandomPosition();
             //GameObject responpoint = Instantiate(respon, tempvec, Quaternion.identity);
             responpoint.transform.position += new Vector3(0, 3, 0);
-                
         }
         nextWave++;
        
 
     }
-
+    /// <summary>
+    /// 웨이브 끝났을시
+    /// </summary>
     void check()
     {               
         time  += Time.deltaTime;
@@ -72,10 +75,15 @@ public class Monstercontroller : MonoBehaviour
             Time.timeScale = 0;
             time = 0;
             Timeset = 30;
+            GameManager.Instance.WaveCount++;
+            StartCoroutine(Wave());
             waveStop.SetActive(true);
         }                    
     }
-
+    /// <summary>
+    /// 랜덤한 위치에 소환
+    /// </summary>
+    /// <returns></returns>
     Vector3 Return_RandomPosition()
     {
         Vector3 OriginPosition = rangeObject.transform.position;

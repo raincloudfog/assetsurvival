@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Zombie : Enemy
 {
-    
-
     public override void SetData(Attributes.Monster data, Player player)
     {
         this.data = data;
@@ -16,8 +14,4 @@ public class Zombie : Enemy
         this.player = player;
         transform.localScale = new Vector3(1, 1, 1);
     }
-
-    
-
-
 }

@@ -37,7 +37,7 @@ public class WaveClaer : MonoBehaviour
     {
         Actions.Add(stat.HP, ButtonManager.Instance.OnHPPlus);
         Actions.Add(stat.Damage, ButtonManager.Instance.OnDamagePlus);
-        Actions.Add(stat.CriticalChance, ButtonManager.Instance.CriticalChance);
+        /*Actions.Add(stat.CriticalChance, ButtonManager.Instance.CriticalChance);*/
         Actions.Add(stat.CriticalPlus, ButtonManager.Instance.CriticalPlus);
     }
 
@@ -74,7 +74,7 @@ public class WaveClaer : MonoBehaviour
     /// <returns></returns>
     List<int> checkint() 
     {
-        List<int> Numbers = new List<int>() { 0,1,2,3 }; // 기본 리스트 숫자들
+        List<int> Numbers = new List<int>() { 0,1,2 }; // 기본 리스트 숫자들
         List<int> shuffle = new List<int>(); // 위의 리스트들의 섞인값들
 
         int idx = 0;

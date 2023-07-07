@@ -26,7 +26,7 @@ public class BossCanAttack : Node
         anim.Play("Z_Attack");
         if (colliders.Length > 0)
         {            
-            player.HIt(2);
+            player.Hp -=2;
         }
 
         

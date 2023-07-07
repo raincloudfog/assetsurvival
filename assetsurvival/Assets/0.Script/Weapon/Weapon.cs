@@ -40,6 +40,22 @@ public class Weapon : MonoBehaviour
     public virtual void Attack()
     {
     }
-    
-    
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 6)
+        {
+            if (other.GetComponent<ZombieHIt>() == true)
+            {
+                ZombieHIt enemy = other.GetComponent<ZombieHIt>();
+                enemy.zombieHit(WeaponManager.Instance.Hammerdamage);
+            }
+            else if (other.GetComponent<BossTree>() == true)
+            {
+                BossTree boss = other.GetComponent<BossTree>();
+                boss.Hit(WeaponManager.Instance.Hammerdamage);
+            }
+
+        }
+    }
+
 }

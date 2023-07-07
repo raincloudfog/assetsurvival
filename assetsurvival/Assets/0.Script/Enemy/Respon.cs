@@ -19,13 +19,34 @@ public class Respon : MonoBehaviour
         if(spawnTimer >= 1)
         {
             spawnTimer = 0;
+
+            try
+            {
+                Enemy enemy = ObjectPool.Instance.ZombieDequeque();
+                enemy.transform.position = transform.position;
+                enemy.transform.SetParent(this.transform);
+                
+                enemy.SetData(MonsterData.Instance.mData.monster[rand], WeaponManager.Instance.player); // 제이슨에 있는 데이터를 받아오고 플레이어도 설정해줌
+
+                enemy.transform.SetParent(null);
+            }
+            catch
+            {
+                Enemy enemy = Instantiate(enemies[rand], transform);                                                
+                enemy.SetData(MonsterData.Instance.mData.monster[rand], WeaponManager.Instance.player); // 제이슨에 있는 데이터를 받아오고 플레이어도 설정해줌
+
+                enemy.transform.SetParent(null);
+            }
             
                 
-            Enemy enemy = Instantiate(enemies[rand], transform);
-            enemy.transform.SetParent(null);
-            enemy.SetData(MonsterData.Instance.mData.monster[rand], WeaponManager.Instance.player); // 제이슨에 있는 데이터를 받아오고 플레이어도 설정해줌
-                
-            Destroy(gameObject);
+            
+            
+            
+            
+            //enemy.gameObject.SetActive(true);
+            
+
+            ObjectPool.Instance.ResponEnqueque(this.gameObject);
             
             
         }

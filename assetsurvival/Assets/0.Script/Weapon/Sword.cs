@@ -42,10 +42,17 @@ public class Sword : Weapon
                 zombieHIt.zombieHit(WeaponManager.Instance.Hammerdamage * Time.deltaTime);
                 
             }
+            else if (item.GetComponent<BossTree>() == true)
+            {
+                BossTree boss = item.GetComponent<BossTree>();
+                boss.Hit(WeaponManager.Instance.Hammerdamage);
+            }
         }
     }
 
-
     
+
+
+
 
 }

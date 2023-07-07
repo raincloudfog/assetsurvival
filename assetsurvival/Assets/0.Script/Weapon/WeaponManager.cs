@@ -22,7 +22,7 @@ public class WeaponManager : SingletonMono<WeaponManager>
     {
         player = CharacterManager.Instance.MainPlayer;
         player.Init();
-        Daggerdamage =  60 *player.damagePlus; // 단검데미지 설정
+        Daggerdamage =  3 *player.damagePlus; // 단검데미지 설정
         Hammerdamage = 10 * player.damagePlus;//해머 데미지 설정
         Sworddamage = 10 * player.damagePlus;
         

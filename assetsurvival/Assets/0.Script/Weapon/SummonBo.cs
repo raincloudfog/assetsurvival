@@ -27,7 +27,7 @@ public class SummonBo : MonoBehaviour
             {
                 
                 timer = 0;
-                Boomerang obj = ObjectPool.Instance.HammerDequeue();
+                BoomerangHammer obj = ObjectPool.Instance.HammerDequeue();
                 obj.transform.position = player.transform.position + transform.forward;
                 Debug.Log("해머 소환" + timer);
 

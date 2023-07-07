@@ -33,7 +33,8 @@ public class Player : MonoBehaviour
     {
         Move();        
         FindClosestEnemy();
-        AA();
+        //AA();
+        Dead();
     }
 
     
@@ -98,12 +99,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    public virtual void HIt(float hitdamage)
+    public virtual void Dead()
     {
-        Hp -= hitdamage;
         if(Hp <= 0)
         {
+            
             Debug.Log("ав╬З╫ю╢о╢ы.");
+            GameManager.Instance.Save();
         }
     }
 

@@ -18,7 +18,7 @@ public class UnityChan : Player
         CriticalChance = 0.2f;
         CriticalPlus = 2.0f;
     }
-    
 
     
+
 }

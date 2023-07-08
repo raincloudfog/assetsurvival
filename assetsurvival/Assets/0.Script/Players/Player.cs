@@ -22,6 +22,20 @@ public class Player : MonoBehaviour
     public float detectionRadius = 10f;  // 탐지 반경
     public Transform FirePoint = null;
     public Animator anim; // 애니메이터
+    public Vector3 minPosition; // 허용되는 최소 위치
+    public Vector3 maxPosition; // 허용되는 최대 위치
+    public GameObject planeObject; // Plane 오브젝트를 참조하는 변수
+    public void OnEnable()
+    {
+        // Plane의 스케일 값을 기반으로 min과 max 범위를 설정
+        
+        Renderer planeRenderer = planeObject.GetComponent<Renderer>();
+        Vector3 planeSize = planeRenderer.bounds.size;
+
+        minPosition = -planeSize * 0.5f;
+        maxPosition = planeSize * 0.5f;
+
+    }
 
     public virtual void Init()
     {
@@ -72,17 +86,22 @@ public class Player : MonoBehaviour
         pos.z = z;
 
         pos.Normalize();
-        
-        if(x != 0 || z != 0)
-        {
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation, Quaternion.LookRotation(pos), 0.15f
-                );
-            transform.Translate(pos * Time.deltaTime * speed, Space.World);
-        }
-        
 
-        
+        if (x != 0 || z != 0)
+        {
+            // 플레이어의 이동
+            Vector3 newPos = transform.position + pos * speed * Time.deltaTime;
+            newPos.x = Mathf.Clamp(newPos.x, minPosition.x, maxPosition.x);
+            newPos.z = Mathf.Clamp(newPos.z, minPosition.z, maxPosition.z);
+            transform.position = newPos;
+
+            // 플레이어의 회전
+            Quaternion targetRotation = Quaternion.LookRotation(pos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.15f);
+        }
+
+
+
 
     }
     

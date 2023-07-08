@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
             obj.transform.SetParent(null);
             obj.Init();
             GameManager.Instance.ZombieKillCount++;
-            ObjectPool.Instance.ZombieReturn(this);
+            ObjectPool.Instance.ZombieReturn(this. gameObject);
         }
     }
 

@@ -10,6 +10,10 @@ public class ZombieHIt : MonoBehaviour
     [SerializeField] Material origin;
     [SerializeField] Material red;
 
+    public void OnEnable()
+    {
+        zombie.SetData(MonsterData.Instance.mData.monster[0], WeaponManager.Instance.player);
+    }
 
     public void zombieHit(float damage)
     {

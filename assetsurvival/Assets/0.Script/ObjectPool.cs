@@ -10,13 +10,13 @@ public class ObjectPool : SingletonMono<ObjectPool>
     [Tooltip("해머를 놓아주세요")]
     public BoomerangHammer Hammer;
     [Tooltip("좀비를 놓아주세요")]
-    public Enemy zombie;
+    public GameObject zombie;
     [Tooltip("빨간느낌표를 넣어주세요")]
     public GameObject spon;
 
     Queue<Dagger> daggers = new Queue<Dagger>();
     Queue<BoomerangHammer> Hammers = new Queue<BoomerangHammer>();
-    Queue<Enemy> zombies = new Queue<Enemy>();
+    Queue<GameObject> zombies = new Queue<GameObject>();
     Queue<GameObject> spons = new Queue<GameObject>();
 
     /// <summary>
@@ -87,7 +87,7 @@ public class ObjectPool : SingletonMono<ObjectPool>
     /// 좀비 불러오기
     /// </summary>
     /// <param name="enemy"></param>
-    public void ZombieReturn(Enemy enemy)
+    public void ZombieReturn(GameObject enemy)
     {
         zombies.Enqueue(enemy);
         enemy.gameObject.SetActive(false);
@@ -96,15 +96,15 @@ public class ObjectPool : SingletonMono<ObjectPool>
     /// 좀비 내보내기
     /// </summary>
     /// <returns></returns>
-    public Enemy ZombieDequeque()
+    public GameObject ZombieDequeque()
     {
         if(zombies.Count <= 0)
         {
-            Enemy newEnemy = Instantiate(zombie);
-            zombies.Enqueue(zombie);
+            GameObject newEnemy = Instantiate(zombie);
+            zombies.Enqueue(newEnemy);
             newEnemy.gameObject.SetActive(false);
         }
-        Enemy enemy = zombies.Dequeue();
+        GameObject enemy = zombies.Dequeue();
         enemy.gameObject.SetActive(true);
         return enemy;
     }

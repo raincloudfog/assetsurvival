@@ -24,10 +24,7 @@ public class BossCanAttack : Node
         rigid.velocity = Vector3.zero;
         anim.SetBool("Walk", false);
         anim.Play("Z_Attack");
-        if (colliders.Length > 0)
-        {            
-            player.Hp -=2;
-        }
+        
 
         
         return NodeState.Running;

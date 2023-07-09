@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -44,5 +45,15 @@ public class GameEnding : MonoBehaviour
             HowManyKillZomes.text = gameEnd.KillZombieCount.ToString();
             HowManyWave.text = gameEnd.WaveCount.ToString();
         }
+    }
+
+    public void Onmainmenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnExit()
+    {
+        Application.Quit();
     }
 }

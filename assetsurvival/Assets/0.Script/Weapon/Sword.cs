@@ -6,10 +6,8 @@ public class Sword : Weapon
 {
 
     Collider[] colliders;
-    /*private void OnEnable()
-    {
-        
-    }*/
+
+    float[] CriChance = new float[] { 70, 30 };
 
     public override void Init()
     {
@@ -29,7 +27,8 @@ public class Sword : Weapon
         Attack();
 
         
-    }
+    } 
+    // 이 코드 OnTriggerStay로 할수도 있음.
     public override void Attack()
     {
         colliders = Physics.OverlapSphere(transform.position, 2, LayerMask.GetMask("Enemy"));
@@ -37,21 +36,79 @@ public class Sword : Weapon
         {
             if (item.GetComponent<ZombieHIt>() != null)
             {
-                Debug.Log("좀비를 소드로 때리는 중");
+                float Cri = Choose(CriChance);
+
                 ZombieHIt zombieHIt = item.GetComponent<ZombieHIt>();
-                zombieHIt.zombieHit(WeaponManager.Instance.Hammerdamage * Time.deltaTime);
-                
+                if(Cri == 0)
+                {
+                    zombieHIt.zombieHit(WeaponManager.Instance.Sworddamage * Time.deltaTime * player.damagePlus);
+                }
+                else if(Cri == 1)
+                {
+                    zombieHIt.zombieHit(WeaponManager.Instance.Sworddamage * Time.deltaTime *
+                        (critPower + player.CriticalPlus + player.damagePlus));
+                    Debug.Log("Sword 크리티컬!!");
+                }
+
+
             }
             else if (item.GetComponent<BossTree>() == true)
             {
+                float Cri = Choose(CriChance);
                 BossTree boss = item.GetComponent<BossTree>();
-                boss.Hit(WeaponManager.Instance.Hammerdamage);
+                if(Cri == 0)
+                {
+                    boss.Hit(WeaponManager.Instance.Sworddamage * Time.deltaTime * player.damagePlus);
+                }
+                else if(Cri == 1)
+                {
+                    boss.Hit(WeaponManager.Instance.Sworddamage * Time.deltaTime *
+                        (critPower + player.CriticalPlus + player.damagePlus));
+                    Debug.Log("Sword 크리티컬!!");
+                }
             }
         }
     }
 
-    
+    protected override float Choose(float[] probs)
+    {
+        float total = 0;
+        foreach (float item in probs)
+        {
+            total += item;
+        }
 
+        float randomPoint = total * Random.value;
+
+        for (int i = 0; i < probs.Length; i++)
+        {
+            if(randomPoint < probs[i])
+            {
+                return i;
+            }
+            else
+            {
+                randomPoint -= probs[i];
+            }
+        }
+        return probs.Length - 1;
+    }
+
+    void normaldamagetxt()
+    {
+        DamageTxtScript obj = ObjectPool.Instance.txtDequeue();
+        obj.transform.position = transform.position;
+        obj.transform.SetParent(null);
+        obj.txt.text = (WeaponManager.Instance.Sworddamage * (player.damagePlus)).ToString();
+    }
+
+    void Cridamagetxt()
+    {
+        DamageTxtScript obj = ObjectPool.Instance.txtDequeue();
+        obj.transform.position = transform.position;
+        obj.transform.SetParent(null);
+        obj.txt.text = (WeaponManager.Instance.Sworddamage * (critPower + player.CriticalPlus + player.damagePlus)).ToString();
+    }
 
 
 

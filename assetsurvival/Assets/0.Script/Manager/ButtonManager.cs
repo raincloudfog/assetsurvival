@@ -28,6 +28,7 @@ public class ButtonManager : SingletonMono<ButtonManager>
     {
         player = CharacterManager.Instance.MainPlayer;
     }
+
     /// <summary>
     /// 캐릭터에게 해머를 줍니다.
     /// </summary>
@@ -55,6 +56,7 @@ public class ButtonManager : SingletonMono<ButtonManager>
         Weapondic.Add(Weapons.Hammer, obj);
         LevelUPUI.SetActive(false);// 진행시 꺼주기
     }
+
     /// <summary>
     /// 플레이어에게 검을 줍니다.
     /// </summary>
@@ -104,17 +106,11 @@ public class ButtonManager : SingletonMono<ButtonManager>
             
             return;
         }
-
         Weapon obj = Instantiate(_Weapons[2]); // 오브젝트 풀링 수정할것
         obj.Init();
         weaPons.Add(obj.weapons);
-        
         Weapondic.Add(Weapons.Dagger, obj);
-
         Destroy(obj.gameObject);
-        
-        
-
         LevelUPUI.SetActive(false); // 진행시 꺼주기
     }
 
@@ -140,12 +136,15 @@ public class ButtonManager : SingletonMono<ButtonManager>
         Debug.Log("크리티컬 데미지 증가");
         WaveClearUI.SetActive(false);
     }
-    public void CriticalChance()
+    /// <summary>
+    /// 더미데이터 나중에 수정할 수 있음.
+    /// </summary>
+    /*public void CriticalChance()
     {
         player.CriticalChance += 0.05f;
         Debug.Log("크리티컬 퍼센트 증가");
         WaveClearUI.SetActive(false);
-    }
+    }*/
 
     
 

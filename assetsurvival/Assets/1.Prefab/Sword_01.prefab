@@ -67,6 +67,7 @@ MonoBehaviour:
   rigid: {fileID: -2993127822642201886}
   character_type: 0
   firePoint: {fileID: 0}
+  attacktxt: {fileID: 2858938967358853088, guid: c21527554cc3e2141ad83eee18412400, type: 3}
 --- !u!23 &2300968513234132779
 MeshRenderer:
   m_ObjectHideFlags: 0

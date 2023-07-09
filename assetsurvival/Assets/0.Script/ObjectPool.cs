@@ -13,11 +13,13 @@ public class ObjectPool : SingletonMono<ObjectPool>
     public GameObject zombie;
     [Tooltip("빨간느낌표를 넣어주세요")]
     public GameObject spon;
-
+    [Tooltip("데미지 툴팁을 넣어주세요")]
+    public DamageTxtScript damageTxt;
     Queue<Dagger> daggers = new Queue<Dagger>();
     Queue<BoomerangHammer> Hammers = new Queue<BoomerangHammer>();
     Queue<GameObject> zombies = new Queue<GameObject>();
     Queue<GameObject> spons = new Queue<GameObject>();
+    Queue<DamageTxtScript> damageTxtScripts = new Queue<DamageTxtScript>();
 
     /// <summary>
     /// 단검 가져오기
@@ -132,6 +134,24 @@ public class ObjectPool : SingletonMono<ObjectPool>
         }
         GameObject obj = spons.Dequeue();
         obj.SetActive(true);
+        return obj;
+    }
+
+    public void txtEnqueue(DamageTxtScript obj)
+    {
+        damageTxtScripts.Enqueue(obj);
+        obj.gameObject.SetActive(false);
+    }
+    public DamageTxtScript txtDequeue()
+    {
+        if(damageTxtScripts.Count <= 0)
+        {
+            DamageTxtScript newobj = Instantiate(damageTxt);
+            damageTxtScripts.Enqueue(newobj);
+            newobj.gameObject.SetActive(false);
+        }
+        DamageTxtScript obj = damageTxtScripts.Dequeue();
+        obj.gameObject.SetActive(true);
         return obj;
     }
 }

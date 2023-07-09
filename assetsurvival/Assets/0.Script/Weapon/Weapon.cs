@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Weapon : MonoBehaviour
 {
     public Weapons weapons = Weapons.End;
@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected Rigidbody rigid;
     public Character character_type; // 캐릭터가 무엇인지 확인하기위함.
     public Transform firePoint; // 발사 지점
+    public DamageTxtScript attacktxt; // 때릴때 나오는 공격 데미지 텍스트
 
     /// <summary>
     /// 플레이어를 찾아주고 캐릭터 타입을 찾아줌.
@@ -26,7 +27,7 @@ public class Weapon : MonoBehaviour
         character_type = StartSave.Instance.character_type;
         player = CharacterManager.Instance.MainPlayer;
         firePoint = player.FirePoint;
-
+        
 
 
     }
@@ -35,10 +36,17 @@ public class Weapon : MonoBehaviour
 
     }
 
-
-
     public virtual void Attack()
     {
+    }
+    /// <summary>
+    /// 유니티 홈페이지 참고한 랜덤함수
+    /// </summary>
+    /// <param name="probs"></param>
+    /// <returns></returns>
+    protected virtual float Choose(float[] probs)
+    {
+        return 0;
     }
     protected virtual void OnTriggerEnter(Collider other)
     {

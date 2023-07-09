@@ -67,10 +67,9 @@ MonoBehaviour:
   rigid: {fileID: -8627188970431364903}
   character_type: 0
   firePoint: {fileID: 0}
-  player: {fileID: 0}
+  attacktxt: {fileID: 2858938967358853088, guid: c21527554cc3e2141ad83eee18412400, type: 3}
+  go: 0
   Hammer: {fileID: 8591273635324488586}
-  rigid: {fileID: -8627188970431364903}
-  itemToRotate: {fileID: 0}
 --- !u!23 &7798732254085007967
 MeshRenderer:
   m_ObjectHideFlags: 0

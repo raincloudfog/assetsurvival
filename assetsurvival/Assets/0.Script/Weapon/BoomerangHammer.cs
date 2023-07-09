@@ -14,7 +14,7 @@ public class BoomerangHammer : Weapon
     Vector3 locationInFrontOfPlayer;
 
     // Start is called before the first frame update
-    
+    float[] Crichance = new float[] { 50, 50 };
     
     void Start()
     {
@@ -81,17 +81,83 @@ public class BoomerangHammer : Weapon
     {
         if (other.gameObject.layer == 6)
         {
+            float Cri = Choose(Crichance);
             if (other.GetComponent<ZombieHIt>() == true)
             {
                 ZombieHIt enemy = other.GetComponent<ZombieHIt>();
-                enemy.zombieHit(WeaponManager.Instance.Hammerdamage);
+                if(Cri == 0)
+                {
+                    normaldamagetxt();
+                    enemy.zombieHit(WeaponManager.Instance.Hammerdamage * player.damagePlus);
+                }
+                else if(Cri == 1)
+                {
+                    Cridamagetxt();
+                    enemy.zombieHit(WeaponManager.Instance.Hammerdamage *
+                        (critPower + player.CriticalPlus + player.damagePlus));
+                    Debug.Log("Hammer 农府萍拿!!");
+                }
+
             }
             else if (other.GetComponent<BossTree>() == true)
             {
                 BossTree boss = other.GetComponent<BossTree>();
-                boss.Hit(WeaponManager.Instance.Hammerdamage);
+                if(Cri == 0)
+                {
+                    normaldamagetxt();
+                    boss.Hit(WeaponManager.Instance.Hammerdamage * player.damagePlus);
+                }
+                else if( Cri == 1)
+                {
+                    Cridamagetxt();
+                    boss.Hit(WeaponManager.Instance.Hammerdamage *
+                        (critPower + player.CriticalPlus + player.damagePlus));
+                    Debug.Log("Hammer 农府萍拿!!");
+                }
             }
-
         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        attacktxt.gameObject.SetActive(false);
+    }
+    protected override float Choose(float[] probs)
+    {
+        float total = 0;
+        foreach (float item in probs)
+        {
+            total += item;
+        }
+
+        float randomPoint = Random.value * total;
+
+        for (int i = 0; i < probs.Length; i++)
+        {
+            if (randomPoint < probs[i])
+            {
+                return i;
+            }
+            else
+            {
+                randomPoint -= probs[i];
+            }
+        }
+        return probs.Length - 1;
+    }
+
+    void normaldamagetxt()
+    {
+        DamageTxtScript obj = ObjectPool.Instance.txtDequeue();
+        obj.transform.position = transform.position;
+        obj.transform.SetParent(null);
+        obj.txt.text = (WeaponManager.Instance.Hammerdamage * (player.damagePlus)).ToString();
+    }
+
+    void Cridamagetxt()
+    {
+        DamageTxtScript obj = ObjectPool.Instance.txtDequeue();
+        obj.transform.position = transform.position;
+        obj.transform.SetParent(null);
+        obj.txt.text = (WeaponManager.Instance.Hammerdamage * (critPower + player.CriticalPlus + player.damagePlus)).ToString();
     }
 }

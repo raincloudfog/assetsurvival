@@ -8,6 +8,8 @@ public class Dagger : Weapon
     Vector3 shootDirection; // 날아갈 방향
     float timer;
 
+    float[] Crichance = new float[] { 50, 50 };
+
     public override void Init()
     {
         base.Init();
@@ -55,18 +57,86 @@ public class Dagger : Weapon
     {
         if (other.gameObject.layer == 6)
         {
+            float Crichance = Choose(this.Crichance);
             if (other.GetComponent<ZombieHIt>() == true)
             {
                 ZombieHIt enemy = other.GetComponent<ZombieHIt>();
-                enemy.zombieHit(WeaponManager.Instance.Daggerdamage);
+
+                if (Crichance == 0)
+                {
+                    normaldamagetxt();
+                    
+                    enemy.zombieHit(WeaponManager.Instance.Daggerdamage * player.damagePlus);
+                }
+                else if(Crichance == 1)
+                {
+                    Cridamagetxt();
+                    enemy.zombieHit(WeaponManager.Instance.Daggerdamage * (critPower + player.CriticalPlus + player.damagePlus));
+                    Debug.Log("Dagger 크리티컬!!");
+                }
+
             }
             else if (other.GetComponent<BossTree>() == true)
             {
                 BossTree boss = other.GetComponent<BossTree>();
-                boss.Hit(WeaponManager.Instance.Daggerdamage);
                 
+                
+                if (Crichance == 0)
+                {
+                    normaldamagetxt();
+                    
+                    boss.Hit(WeaponManager.Instance.Daggerdamage * player.damagePlus);
+                }
+                else if(Crichance == 1)
+                {
+                    Cridamagetxt();
+
+                    boss.Hit(WeaponManager.Instance.Daggerdamage *
+                        (critPower + player.CriticalPlus + player.damagePlus));
+                    Debug.Log("Dagger 크리티컬!!");
+                }
             }
             ObjectPool.Instance.daggersreturn(this);
         }
     }
+    
+    protected override float Choose(float[] probs)
+    {
+        float total = 0;
+        foreach (float item in probs)
+        {
+            total += item;
+        }
+
+        float randomPoint = Random.value * total;
+        for (int i = 0; i < probs.Length; i++)
+        {
+            if(randomPoint < probs[i])
+            {
+                return i;
+            }
+            else
+            {
+                randomPoint -= probs[i];
+            }
+        }
+        return probs.Length - 1;
+    }
+
+    void normaldamagetxt()
+    {
+        DamageTxtScript obj = ObjectPool.Instance.txtDequeue();
+        obj.transform.position = transform.position;
+        obj.transform.SetParent(null);
+        obj.txt.text = (WeaponManager.Instance.Daggerdamage * (player.damagePlus)).ToString();
+    }
+
+    void Cridamagetxt()
+    {
+        DamageTxtScript obj = ObjectPool.Instance.txtDequeue();
+        obj.transform.position = transform.position;
+        obj.transform.SetParent(null);
+        obj.txt.text = (WeaponManager.Instance.Daggerdamage * (critPower + player.CriticalPlus + player.damagePlus)).ToString();
+    }
+
 }

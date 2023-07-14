@@ -23,7 +23,7 @@ public class ButtonManager : SingletonMono<ButtonManager>
     [SerializeField]Player player; // 플레이어
     [SerializeField] GameObject LevelUPUI; // 레벨업시 UI
     [SerializeField] GameObject WaveClearUI; // 웨이브 끝났을시 UI
-
+    [SerializeField] GameObject gameStop; // 게임 멈추기
     private void Start()
     {
         player = CharacterManager.Instance.MainPlayer;
@@ -146,6 +146,16 @@ public class ButtonManager : SingletonMono<ButtonManager>
         WaveClearUI.SetActive(false);
     }*/
 
-    
+    public void OnReStart()
+    {
+        gameStop.SetActive(false);
+        Time.timeScale = 1;
+        InPutManager.Instance.AddKeycode(KeyCode.Escape, GameManager.Instance.OpenGamestop);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 
 }

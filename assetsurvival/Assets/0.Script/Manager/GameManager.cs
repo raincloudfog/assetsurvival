@@ -32,7 +32,7 @@ public class GameManager : SingletonMono<GameManager>
         InPutManager.Instance.AddKeycode(KeyCode.Escape, OpenGamestop);
     }
 
-    void OpenGamestop()
+    public void OpenGamestop()
     {
         Gamestop.SetActive(true);
         Time.timeScale = 0;

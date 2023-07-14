@@ -1068,7 +1068,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 327629857}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2125313081}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &327629857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2487,7 +2499,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 883945453}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2125313081}
+        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+        m_MethodName: OnReStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &883945453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4361,6 +4385,7 @@ MonoBehaviour:
   player: {fileID: 0}
   LevelUPUI: {fileID: 185969759}
   WaveClearUI: {fileID: 444993708}
+  gameStop: {fileID: 1832089144}
 --- !u!4 &2125313082
 Transform:
   m_ObjectHideFlags: 0
